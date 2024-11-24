@@ -218,8 +218,8 @@ void gfsk_rx(void)
 
 void receive_data(void)
 {
-    uint8_t buffer[7];  // For command/response handling
-    uint8_t rx_fifo[64]; // Adjust size as needed for expected packet size
+    uint8_t buffer[7];  
+    uint8_t rx_fifo[64]; 
 
     // Clear interrupts
     buffer[0] = 0x00;
@@ -228,10 +228,10 @@ void receive_data(void)
     si446x_ctrl_send_cmd_stream(Si446x_CMD_GET_INT_STATUS, buffer, 3);
 
     // Set RX mode
-    buffer[0] = 0x00; // RX channel
-    buffer[1] = 0x30; // Start RX immediately
-    buffer[2] = 0x00; // RX timeout (0 = infinite)
-    buffer[3] = 0x00; // RX valid packets to store (0 = store all)
+    buffer[0] = 0x00; 
+    buffer[1] = 0x30; 
+    buffer[2] = 0x00; 
+    buffer[3] = 0x00; 
     si446x_ctrl_send_cmd_stream(Si446x_CMD_START_RX, buffer, 4);
 
     while (1) // Continuous reception loop
@@ -249,7 +249,7 @@ void receive_data(void)
             usart_tx("Received Data: ");
             for (int i = 0; i < sizeof(rx_fifo); i++)
             {
-                usart_tx(rx_fifo[i]); // Example: transmit received data over USART
+                usart_tx(rx_fifo[i]);
             }
             usart_txln("");
 
@@ -257,7 +257,6 @@ void receive_data(void)
             si446x_ctrl_send_cmd_stream(Si446x_CMD_FIFO_INFO, buffer, 2);
             if (buffer[1] & 0x01) // RX FIFO Overflow
             {
-                // Flush FIFO
                 si446x_ctrl_send_cmd_stream(Si446x_CMD_FIFO_INFO, (const uint8_t[]){0x02}, 1);
             }
 
@@ -265,7 +264,7 @@ void receive_data(void)
             si446x_ctrl_send_cmd_stream(Si446x_CMD_START_RX, buffer, 4);
         }
 
-        delay_ms(100); // Polling interval
+        delay_ms(100);
     }
 }
 
