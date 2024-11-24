@@ -1,0 +1,803 @@
+ARM GAS  /tmp/ccJr5l1f.s 			page 1
+
+
+   1              		.cpu cortex-m3
+   2              		.eabi_attribute 20, 1
+   3              		.eabi_attribute 21, 1
+   4              		.eabi_attribute 23, 3
+   5              		.eabi_attribute 24, 1
+   6              		.eabi_attribute 25, 1
+   7              		.eabi_attribute 26, 1
+   8              		.eabi_attribute 30, 1
+   9              		.eabi_attribute 34, 1
+  10              		.eabi_attribute 18, 4
+  11              		.file	"radio.c"
+  12              		.text
+  13              		.section	.text.radio_get_id,"ax",%progbits
+  14              		.align	1
+  15              		.global	radio_get_id
+  16              		.arch armv7-m
+  17              		.syntax unified
+  18              		.thumb
+  19              		.thumb_func
+  20              		.fpu softvfp
+  22              	radio_get_id:
+  23              		@ args = 0, pretend = 0, frame = 8
+  24              		@ frame_needed = 0, uses_anonymous_args = 0
+  25 0000 00B5     		push	{lr}
+  26 0002 83B0     		sub	sp, sp, #12
+  27 0004 0023     		movs	r3, #0
+  28 0006 0193     		str	r3, [sp, #4]
+  29 0008 0120     		movs	r0, #1
+  30 000a FFF7FEFF 		bl	si446x_ctrl_send_cmd
+  31 000e 0421     		movs	r1, #4
+  32 0010 0DEB0100 		add	r0, sp, r1
+  33 0014 FFF7FEFF 		bl	si446x_ctrl_get_response
+  34 0018 18B9     		cbnz	r0, .L5
+  35 001a 0020     		movs	r0, #0
+  36              	.L2:
+  37 001c 03B0     		add	sp, sp, #12
+  38              		@ sp needed
+  39 001e 5DF804FB 		ldr	pc, [sp], #4
+  40              	.L5:
+  41 0022 9DF80630 		ldrb	r3, [sp, #6]	@ zero_extendqisi2
+  42 0026 9DF80700 		ldrb	r0, [sp, #7]	@ zero_extendqisi2
+  43 002a 00EB0320 		add	r0, r0, r3, lsl #8
+  44 002e 80B2     		uxth	r0, r0
+  45 0030 F4E7     		b	.L2
+  47              		.section	.text.radio_reset,"ax",%progbits
+  48              		.align	1
+  49              		.global	radio_reset
+  50              		.syntax unified
+  51              		.thumb
+  52              		.thumb_func
+  53              		.fpu softvfp
+  55              	radio_reset:
+  56              		@ args = 0, pretend = 0, frame = 0
+  57              		@ frame_needed = 0, uses_anonymous_args = 0
+  58 0000 10B5     		push	{r4, lr}
+  59 0002 084C     		ldr	r4, .L8
+  60 0004 2369     		ldr	r3, [r4, #16]
+ARM GAS  /tmp/ccJr5l1f.s 			page 2
+
+
+  61 0006 43F08003 		orr	r3, r3, #128
+  62 000a 2361     		str	r3, [r4, #16]
+  63 000c 6420     		movs	r0, #100
+  64 000e FFF7FEFF 		bl	delay_ms
+  65 0012 6369     		ldr	r3, [r4, #20]
+  66 0014 43F08003 		orr	r3, r3, #128
+  67 0018 6361     		str	r3, [r4, #20]
+  68 001a 1420     		movs	r0, #20
+  69 001c FFF7FEFF 		bl	delay_ms
+  70 0020 10BD     		pop	{r4, pc}
+  71              	.L9:
+  72 0022 00BF     		.align	2
+  73              	.L8:
+  74 0024 00080140 		.word	1073809408
+  76              		.section	.text.radio_sleep,"ax",%progbits
+  77              		.align	1
+  78              		.global	radio_sleep
+  79              		.syntax unified
+  80              		.thumb
+  81              		.thumb_func
+  82              		.fpu softvfp
+  84              	radio_sleep:
+  85              		@ args = 0, pretend = 0, frame = 0
+  86              		@ frame_needed = 0, uses_anonymous_args = 0
+  87              		@ link register save eliminated.
+  88 0000 024A     		ldr	r2, .L11
+  89 0002 1369     		ldr	r3, [r2, #16]
+  90 0004 43F08003 		orr	r3, r3, #128
+  91 0008 1361     		str	r3, [r2, #16]
+  92 000a 7047     		bx	lr
+  93              	.L12:
+  94              		.align	2
+  95              	.L11:
+  96 000c 00080140 		.word	1073809408
+  98              		.section	.text.radio_get_state,"ax",%progbits
+  99              		.align	1
+ 100              		.global	radio_get_state
+ 101              		.syntax unified
+ 102              		.thumb
+ 103              		.thumb_func
+ 104              		.fpu softvfp
+ 106              	radio_get_state:
+ 107              		@ args = 0, pretend = 0, frame = 8
+ 108              		@ frame_needed = 0, uses_anonymous_args = 0
+ 109 0000 00B5     		push	{lr}
+ 110 0002 83B0     		sub	sp, sp, #12
+ 111 0004 094B     		ldr	r3, .L15
+ 112 0006 1B88     		ldrh	r3, [r3]
+ 113 0008 ADF80430 		strh	r3, [sp, #4]	@ movhi
+ 114 000c 0023     		movs	r3, #0
+ 115 000e 8DF80630 		strb	r3, [sp, #6]
+ 116 0012 3320     		movs	r0, #51
+ 117 0014 FFF7FEFF 		bl	si446x_ctrl_send_cmd
+ 118 0018 0321     		movs	r1, #3
+ 119 001a 01A8     		add	r0, sp, #4
+ 120 001c FFF7FEFF 		bl	si446x_ctrl_get_response
+ 121 0020 9DF80500 		ldrb	r0, [sp, #5]	@ zero_extendqisi2
+ARM GAS  /tmp/ccJr5l1f.s 			page 3
+
+
+ 122 0024 03B0     		add	sp, sp, #12
+ 123              		@ sp needed
+ 124 0026 5DF804FB 		ldr	pc, [sp], #4
+ 125              	.L16:
+ 126 002a 00BF     		.align	2
+ 127              	.L15:
+ 128 002c 00000000 		.word	.LANCHOR0
+ 130              		.section	.text.radio_set_state,"ax",%progbits
+ 131              		.align	1
+ 132              		.global	radio_set_state
+ 133              		.syntax unified
+ 134              		.thumb
+ 135              		.thumb_func
+ 136              		.fpu softvfp
+ 138              	radio_set_state:
+ 139              		@ args = 0, pretend = 0, frame = 8
+ 140              		@ frame_needed = 0, uses_anonymous_args = 0
+ 141 0000 00B5     		push	{lr}
+ 142 0002 83B0     		sub	sp, sp, #12
+ 143 0004 8DF80700 		strb	r0, [sp, #7]
+ 144 0008 0122     		movs	r2, #1
+ 145 000a 0DF10701 		add	r1, sp, #7
+ 146 000e 3420     		movs	r0, #52
+ 147 0010 FFF7FEFF 		bl	si446x_ctrl_send_cmd_stream
+ 148 0014 FFF7FEFF 		bl	si446x_ctrl_wait_cts
+ 149 0018 03B0     		add	sp, sp, #12
+ 150              		@ sp needed
+ 151 001a 5DF804FB 		ldr	pc, [sp], #4
+ 153              		.section	.text.radio_start_tx,"ax",%progbits
+ 154              		.align	1
+ 155              		.global	radio_start_tx
+ 156              		.syntax unified
+ 157              		.thumb
+ 158              		.thumb_func
+ 159              		.fpu softvfp
+ 161              	radio_start_tx:
+ 162              		@ args = 0, pretend = 0, frame = 8
+ 163              		@ frame_needed = 0, uses_anonymous_args = 0
+ 164 0000 00B5     		push	{lr}
+ 165 0002 83B0     		sub	sp, sp, #12
+ 166 0004 4FF44053 		mov	r3, #12288
+ 167 0008 0193     		str	r3, [sp, #4]
+ 168 000a 0422     		movs	r2, #4
+ 169 000c 0DEB0201 		add	r1, sp, r2
+ 170 0010 3120     		movs	r0, #49
+ 171 0012 FFF7FEFF 		bl	si446x_ctrl_send_cmd_stream
+ 172 0016 03B0     		add	sp, sp, #12
+ 173              		@ sp needed
+ 174 0018 5DF804FB 		ldr	pc, [sp], #4
+ 176              		.section	.text.radio_start_rx,"ax",%progbits
+ 177              		.align	1
+ 178              		.global	radio_start_rx
+ 179              		.syntax unified
+ 180              		.thumb
+ 181              		.thumb_func
+ 182              		.fpu softvfp
+ 184              	radio_start_rx:
+ARM GAS  /tmp/ccJr5l1f.s 			page 4
+
+
+ 185              		@ args = 0, pretend = 0, frame = 8
+ 186              		@ frame_needed = 0, uses_anonymous_args = 0
+ 187 0000 00B5     		push	{lr}
+ 188 0002 83B0     		sub	sp, sp, #12
+ 189 0004 084B     		ldr	r3, .L23
+ 190 0006 93E80300 		ldm	r3, {r0, r1}
+ 191 000a 0090     		str	r0, [sp]
+ 192 000c ADF80410 		strh	r1, [sp, #4]	@ movhi
+ 193 0010 090C     		lsrs	r1, r1, #16
+ 194 0012 8DF80610 		strb	r1, [sp, #6]
+ 195 0016 0722     		movs	r2, #7
+ 196 0018 6946     		mov	r1, sp
+ 197 001a 3220     		movs	r0, #50
+ 198 001c FFF7FEFF 		bl	si446x_ctrl_send_cmd_stream
+ 199 0020 03B0     		add	sp, sp, #12
+ 200              		@ sp needed
+ 201 0022 5DF804FB 		ldr	pc, [sp], #4
+ 202              	.L24:
+ 203 0026 00BF     		.align	2
+ 204              	.L23:
+ 205 0028 04000000 		.word	.LANCHOR0+4
+ 207              		.section	.rodata.print_state.str1.4,"aMS",%progbits,1
+ 208              		.align	2
+ 209              	.LC2:
+ 210 0000 4E4F5F43 		.ascii	"NO_CHANGE\000"
+ 210      48414E47 
+ 210      4500
+ 211 000a 0000     		.align	2
+ 212              	.LC3:
+ 213 000c 534C4545 		.ascii	"SLEEP\000"
+ 213      5000
+ 214 0012 0000     		.align	2
+ 215              	.LC4:
+ 216 0014 5350495F 		.ascii	"SPI_ACTIVE\000"
+ 216      41435449 
+ 216      564500
+ 217 001f 00       		.align	2
+ 218              	.LC5:
+ 219 0020 52454144 		.ascii	"READY\000"
+ 219      5900
+ 220 0026 0000     		.align	2
+ 221              	.LC6:
+ 222 0028 54554E45 		.ascii	"TUNE_TX\000"
+ 222      5F545800 
+ 223              		.align	2
+ 224              	.LC7:
+ 225 0030 54554E45 		.ascii	"TUNE_RX\000"
+ 225      5F525800 
+ 226              		.align	2
+ 227              	.LC8:
+ 228 0038 53544152 		.ascii	"START_TX\000"
+ 228      545F5458 
+ 228      00
+ 229 0041 000000   		.align	2
+ 230              	.LC9:
+ 231 0044 53544152 		.ascii	"START_RX\000"
+ 231      545F5258 
+ARM GAS  /tmp/ccJr5l1f.s 			page 5
+
+
+ 231      00
+ 232              		.section	.text.print_state,"ax",%progbits
+ 233              		.align	1
+ 234              		.global	print_state
+ 235              		.syntax unified
+ 236              		.thumb
+ 237              		.thumb_func
+ 238              		.fpu softvfp
+ 240              	print_state:
+ 241              		@ args = 0, pretend = 0, frame = 0
+ 242              		@ frame_needed = 0, uses_anonymous_args = 0
+ 243 0000 08B5     		push	{r3, lr}
+ 244 0002 FFF7FEFF 		bl	radio_get_state
+ 245 0006 0828     		cmp	r0, #8
+ 246 0008 09D8     		bhi	.L25
+ 247 000a DFE800F0 		tbb	[pc, r0]
+ 248              	.L28:
+ 249 000e 05       		.byte	(.L35-.L28)/2
+ 250 000f 09       		.byte	(.L34-.L28)/2
+ 251 0010 0D       		.byte	(.L33-.L28)/2
+ 252 0011 11       		.byte	(.L32-.L28)/2
+ 253 0012 08       		.byte	(.L25-.L28)/2
+ 254 0013 15       		.byte	(.L31-.L28)/2
+ 255 0014 19       		.byte	(.L30-.L28)/2
+ 256 0015 1D       		.byte	(.L29-.L28)/2
+ 257 0016 21       		.byte	(.L27-.L28)/2
+ 258 0017 00       		.p2align 1
+ 259              	.L35:
+ 260 0018 0F48     		ldr	r0, .L37
+ 261 001a FFF7FEFF 		bl	usart_txln
+ 262              	.L25:
+ 263 001e 08BD     		pop	{r3, pc}
+ 264              	.L34:
+ 265 0020 0E48     		ldr	r0, .L37+4
+ 266 0022 FFF7FEFF 		bl	usart_txln
+ 267 0026 FAE7     		b	.L25
+ 268              	.L33:
+ 269 0028 0D48     		ldr	r0, .L37+8
+ 270 002a FFF7FEFF 		bl	usart_txln
+ 271 002e F6E7     		b	.L25
+ 272              	.L32:
+ 273 0030 0C48     		ldr	r0, .L37+12
+ 274 0032 FFF7FEFF 		bl	usart_txln
+ 275 0036 F2E7     		b	.L25
+ 276              	.L31:
+ 277 0038 0B48     		ldr	r0, .L37+16
+ 278 003a FFF7FEFF 		bl	usart_txln
+ 279 003e EEE7     		b	.L25
+ 280              	.L30:
+ 281 0040 0A48     		ldr	r0, .L37+20
+ 282 0042 FFF7FEFF 		bl	usart_txln
+ 283 0046 EAE7     		b	.L25
+ 284              	.L29:
+ 285 0048 0948     		ldr	r0, .L37+24
+ 286 004a FFF7FEFF 		bl	usart_txln
+ 287 004e E6E7     		b	.L25
+ 288              	.L27:
+ARM GAS  /tmp/ccJr5l1f.s 			page 6
+
+
+ 289 0050 0848     		ldr	r0, .L37+28
+ 290 0052 FFF7FEFF 		bl	usart_txln
+ 291 0056 E2E7     		b	.L25
+ 292              	.L38:
+ 293              		.align	2
+ 294              	.L37:
+ 295 0058 00000000 		.word	.LC2
+ 296 005c 0C000000 		.word	.LC3
+ 297 0060 14000000 		.word	.LC4
+ 298 0064 20000000 		.word	.LC5
+ 299 0068 28000000 		.word	.LC6
+ 300 006c 30000000 		.word	.LC7
+ 301 0070 38000000 		.word	.LC8
+ 302 0074 44000000 		.word	.LC9
+ 304              		.section	.rodata.radio_get_interrupt_status.str1.4,"aMS",%progbits,1
+ 305              		.align	2
+ 306              	.LC10:
+ 307 0000 FFFFFF00 		.ascii	"\377\377\377\000"
+ 308              		.section	.text.radio_get_interrupt_status,"ax",%progbits
+ 309              		.align	1
+ 310              		.global	radio_get_interrupt_status
+ 311              		.syntax unified
+ 312              		.thumb
+ 313              		.thumb_func
+ 314              		.fpu softvfp
+ 316              	radio_get_interrupt_status:
+ 317              		@ args = 0, pretend = 0, frame = 16
+ 318              		@ frame_needed = 0, uses_anonymous_args = 0
+ 319 0000 30B5     		push	{r4, r5, lr}
+ 320 0002 85B0     		sub	sp, sp, #20
+ 321 0004 0446     		mov	r4, r0
+ 322 0006 0D46     		mov	r5, r1
+ 323 0008 0023     		movs	r3, #0
+ 324 000a 0193     		str	r3, [sp, #4]
+ 325 000c 0293     		str	r3, [sp, #8]
+ 326 000e 8DF80C30 		strb	r3, [sp, #12]
+ 327 0012 0E4B     		ldr	r3, .L41
+ 328 0014 1B68     		ldr	r3, [r3]
+ 329 0016 ADF80030 		strh	r3, [sp]	@ movhi
+ 330 001a 1B0C     		lsrs	r3, r3, #16
+ 331 001c 8DF80230 		strb	r3, [sp, #2]
+ 332 0020 0322     		movs	r2, #3
+ 333 0022 6946     		mov	r1, sp
+ 334 0024 2020     		movs	r0, #32
+ 335 0026 FFF7FEFF 		bl	si446x_ctrl_send_cmd_stream
+ 336 002a 0921     		movs	r1, #9
+ 337 002c 01A8     		add	r0, sp, #4
+ 338 002e FFF7FEFF 		bl	si446x_ctrl_get_response
+ 339 0032 04F10F03 		add	r3, r4, #15
+ 340 0036 0DEB0304 		add	r4, sp, r3
+ 341 003a 14F80C0C 		ldrb	r0, [r4, #-12]	@ zero_extendqisi2
+ 342 003e 013D     		subs	r5, r5, #1
+ 343 0040 2841     		asrs	r0, r0, r5
+ 344 0042 00F00100 		and	r0, r0, #1
+ 345 0046 05B0     		add	sp, sp, #20
+ 346              		@ sp needed
+ 347 0048 30BD     		pop	{r4, r5, pc}
+ARM GAS  /tmp/ccJr5l1f.s 			page 7
+
+
+ 348              	.L42:
+ 349 004a 00BF     		.align	2
+ 350              	.L41:
+ 351 004c 00000000 		.word	.LC10
+ 353              		.section	.text.radio_clear_interrupt_status,"ax",%progbits
+ 354              		.align	1
+ 355              		.global	radio_clear_interrupt_status
+ 356              		.syntax unified
+ 357              		.thumb
+ 358              		.thumb_func
+ 359              		.fpu softvfp
+ 361              	radio_clear_interrupt_status:
+ 362              		@ args = 0, pretend = 0, frame = 8
+ 363              		@ frame_needed = 0, uses_anonymous_args = 0
+ 364 0000 00B5     		push	{lr}
+ 365 0002 83B0     		sub	sp, sp, #12
+ 366 0004 0D4B     		ldr	r3, .L45
+ 367 0006 1B68     		ldr	r3, [r3]
+ 368 0008 ADF80430 		strh	r3, [sp, #4]	@ movhi
+ 369 000c 1B0C     		lsrs	r3, r3, #16
+ 370 000e 8DF80630 		strb	r3, [sp, #6]
+ 371 0012 0139     		subs	r1, r1, #1
+ 372 0014 0123     		movs	r3, #1
+ 373 0016 8B40     		lsls	r3, r3, r1
+ 374 0018 C21D     		adds	r2, r0, #7
+ 375 001a 0DEB0200 		add	r0, sp, r2
+ 376 001e 10F8041C 		ldrb	r1, [r0, #-4]	@ zero_extendqisi2
+ 377 0022 21EA0301 		bic	r1, r1, r3
+ 378 0026 00F8041C 		strb	r1, [r0, #-4]
+ 379 002a 0322     		movs	r2, #3
+ 380 002c 01A9     		add	r1, sp, #4
+ 381 002e 2020     		movs	r0, #32
+ 382 0030 FFF7FEFF 		bl	si446x_ctrl_send_cmd_stream
+ 383 0034 03B0     		add	sp, sp, #12
+ 384              		@ sp needed
+ 385 0036 5DF804FB 		ldr	pc, [sp], #4
+ 386              	.L46:
+ 387 003a 00BF     		.align	2
+ 388              	.L45:
+ 389 003c 00000000 		.word	.LC10
+ 391              		.section	.text.radio_tx,"ax",%progbits
+ 392              		.align	1
+ 393              		.global	radio_tx
+ 394              		.syntax unified
+ 395              		.thumb
+ 396              		.thumb_func
+ 397              		.fpu softvfp
+ 399              	radio_tx:
+ 400              		@ args = 0, pretend = 0, frame = 8
+ 401              		@ frame_needed = 0, uses_anonymous_args = 0
+ 402 0000 30B5     		push	{r4, r5, lr}
+ 403 0002 83B0     		sub	sp, sp, #12
+ 404 0004 0446     		mov	r4, r0
+ 405 0006 0D46     		mov	r5, r1
+ 406 0008 0220     		movs	r0, #2
+ 407 000a FFF7FEFF 		bl	radio_set_state
+ 408 000e 0323     		movs	r3, #3
+ARM GAS  /tmp/ccJr5l1f.s 			page 8
+
+
+ 409 0010 8DF80730 		strb	r3, [sp, #7]
+ 410 0014 0122     		movs	r2, #1
+ 411 0016 0DF10701 		add	r1, sp, #7
+ 412 001a 1520     		movs	r0, #21
+ 413 001c FFF7FEFF 		bl	si446x_ctrl_send_cmd_stream
+ 414 0020 EAB2     		uxtb	r2, r5
+ 415 0022 2146     		mov	r1, r4
+ 416 0024 6620     		movs	r0, #102
+ 417 0026 FFF7FEFF 		bl	si446x_ctrl_send_cmd_stream
+ 418 002a FFF7FEFF 		bl	radio_start_tx
+ 419              	.L48:
+ 420 002e 0621     		movs	r1, #6
+ 421 0030 0520     		movs	r0, #5
+ 422 0032 FFF7FEFF 		bl	radio_get_interrupt_status
+ 423 0036 0028     		cmp	r0, #0
+ 424 0038 F9D0     		beq	.L48
+ 425 003a 0621     		movs	r1, #6
+ 426 003c 0220     		movs	r0, #2
+ 427 003e FFF7FEFF 		bl	radio_clear_interrupt_status
+ 428 0042 03B0     		add	sp, sp, #12
+ 429              		@ sp needed
+ 430 0044 30BD     		pop	{r4, r5, pc}
+ 432              		.section	.text.set_properties,"ax",%progbits
+ 433              		.align	1
+ 434              		.global	set_properties
+ 435              		.syntax unified
+ 436              		.thumb
+ 437              		.thumb_func
+ 438              		.fpu softvfp
+ 440              	set_properties:
+ 441              		@ args = 0, pretend = 0, frame = 16
+ 442              		@ frame_needed = 0, uses_anonymous_args = 0
+ 443 0000 00B5     		push	{lr}
+ 444 0002 85B0     		sub	sp, sp, #20
+ 445 0004 0023     		movs	r3, #0
+ 446 0006 0093     		str	r3, [sp]
+ 447 0008 0193     		str	r3, [sp, #4]
+ 448 000a 0293     		str	r3, [sp, #8]
+ 449 000c CDF80B30 		str	r3, [sp, #11]	@ unaligned
+ 450 0010 4FEA102C 		lsr	ip, r0, #8
+ 451 0014 8DF800C0 		strb	ip, [sp]
+ 452 0018 8DF80120 		strb	r2, [sp, #1]
+ 453 001c 8DF80200 		strb	r0, [sp, #2]
+ 454 0020 08E0     		b	.L51
+ 455              	.L52:
+ 456 0022 11F803C0 		ldrb	ip, [r1, r3]	@ zero_extendqisi2
+ 457 0026 03F11300 		add	r0, r3, #19
+ 458 002a 6844     		add	r0, sp, r0
+ 459 002c 00F810CC 		strb	ip, [r0, #-16]
+ 460 0030 0133     		adds	r3, r3, #1
+ 461 0032 DBB2     		uxtb	r3, r3
+ 462              	.L51:
+ 463 0034 9342     		cmp	r3, r2
+ 464 0036 F4D3     		bcc	.L52
+ 465 0038 0332     		adds	r2, r2, #3
+ 466 003a D2B2     		uxtb	r2, r2
+ 467 003c 6946     		mov	r1, sp
+ARM GAS  /tmp/ccJr5l1f.s 			page 9
+
+
+ 468 003e 1120     		movs	r0, #17
+ 469 0040 FFF7FEFF 		bl	si446x_ctrl_send_cmd_stream
+ 470 0044 FFF7FEFF 		bl	si446x_ctrl_wait_cts
+ 471 0048 05B0     		add	sp, sp, #20
+ 472              		@ sp needed
+ 473 004a 5DF804FB 		ldr	pc, [sp], #4
+ 475              		.section	.text.radio_configure_packet,"ax",%progbits
+ 476              		.align	1
+ 477              		.global	radio_configure_packet
+ 478              		.syntax unified
+ 479              		.thumb
+ 480              		.thumb_func
+ 481              		.fpu softvfp
+ 483              	radio_configure_packet:
+ 484              		@ args = 0, pretend = 0, frame = 40
+ 485              		@ frame_needed = 0, uses_anonymous_args = 0
+ 486 0000 00B5     		push	{lr}
+ 487 0002 8BB0     		sub	sp, sp, #44
+ 488 0004 334B     		ldr	r3, .L58
+ 489 0006 93E80300 		ldm	r3, {r0, r1}
+ 490 000a 0890     		str	r0, [sp, #32]
+ 491 000c 8DF82410 		strb	r1, [sp, #36]
+ 492 0010 0522     		movs	r2, #5
+ 493 0012 08A9     		add	r1, sp, #32
+ 494 0014 4FF48050 		mov	r0, #4096
+ 495 0018 FFF7FEFF 		bl	set_properties
+ 496 001c 0A20     		movs	r0, #10
+ 497 001e FFF7FEFF 		bl	delay_ms
+ 498 0022 4DF22D43 		movw	r3, #54317
+ 499 0026 ADF81C30 		strh	r3, [sp, #28]	@ movhi
+ 500 002a 0023     		movs	r3, #0
+ 501 002c 0593     		str	r3, [sp, #20]
+ 502 002e 8DF81830 		strb	r3, [sp, #24]
+ 503 0032 0122     		movs	r2, #1
+ 504 0034 8DF81420 		strb	r2, [sp, #20]
+ 505 0038 0AE0     		b	.L55
+ 506              	.L56:
+ 507 003a 5A1C     		adds	r2, r3, #1
+ 508 003c 2833     		adds	r3, r3, #40
+ 509 003e 6B44     		add	r3, sp, r3
+ 510 0040 13F80C1C 		ldrb	r1, [r3, #-12]	@ zero_extendqisi2
+ 511 0044 02F12803 		add	r3, r2, #40
+ 512 0048 6B44     		add	r3, sp, r3
+ 513 004a 03F8141C 		strb	r1, [r3, #-20]
+ 514 004e D3B2     		uxtb	r3, r2
+ 515              	.L55:
+ 516 0050 012B     		cmp	r3, #1
+ 517 0052 F2D9     		bls	.L56
+ 518 0054 0522     		movs	r2, #5
+ 519 0056 05A9     		add	r1, sp, #20
+ 520 0058 4FF48850 		mov	r0, #4352
+ 521 005c FFF7FEFF 		bl	set_properties
+ 522 0060 0A20     		movs	r0, #10
+ 523 0062 FFF7FEFF 		bl	delay_ms
+ 524 0066 1C4B     		ldr	r3, .L58+4
+ 525 0068 93E80300 		ldm	r3, {r0, r1}
+ 526 006c 0390     		str	r0, [sp, #12]
+ARM GAS  /tmp/ccJr5l1f.s 			page 10
+
+
+ 527 006e ADF81010 		strh	r1, [sp, #16]	@ movhi
+ 528 0072 090C     		lsrs	r1, r1, #16
+ 529 0074 8DF81210 		strb	r1, [sp, #18]
+ 530 0078 0722     		movs	r2, #7
+ 531 007a 03A9     		add	r1, sp, #12
+ 532 007c 4FF49050 		mov	r0, #4608
+ 533 0080 FFF7FEFF 		bl	set_properties
+ 534 0084 154B     		ldr	r3, .L58+8
+ 535 0086 0293     		str	r3, [sp, #8]
+ 536 0088 0422     		movs	r2, #4
+ 537 008a 02A9     		add	r1, sp, #8
+ 538 008c 41F20D20 		movw	r0, #4621
+ 539 0090 FFF7FEFF 		bl	set_properties
+ 540 0094 124B     		ldr	r3, .L58+12
+ 541 0096 0193     		str	r3, [sp, #4]
+ 542 0098 0422     		movs	r2, #4
+ 543 009a 0DEB0201 		add	r1, sp, r2
+ 544 009e 41F21120 		movw	r0, #4625
+ 545 00a2 FFF7FEFF 		bl	set_properties
+ 546 00a6 0023     		movs	r3, #0
+ 547 00a8 0093     		str	r3, [sp]
+ 548 00aa 0422     		movs	r2, #4
+ 549 00ac 6946     		mov	r1, sp
+ 550 00ae 41F21520 		movw	r0, #4629
+ 551 00b2 FFF7FEFF 		bl	set_properties
+ 552 00b6 0422     		movs	r2, #4
+ 553 00b8 6946     		mov	r1, sp
+ 554 00ba 41F21920 		movw	r0, #4633
+ 555 00be FFF7FEFF 		bl	set_properties
+ 556 00c2 0422     		movs	r2, #4
+ 557 00c4 6946     		mov	r1, sp
+ 558 00c6 41F21D20 		movw	r0, #4637
+ 559 00ca FFF7FEFF 		bl	set_properties
+ 560 00ce 0BB0     		add	sp, sp, #44
+ 561              		@ sp needed
+ 562 00d0 5DF804FB 		ldr	pc, [sp], #4
+ 563              	.L59:
+ 564              		.align	2
+ 565              	.L58:
+ 566 00d4 0C000000 		.word	.LANCHOR0+12
+ 567 00d8 14000000 		.word	.LANCHOR0+20
+ 568 00dc 000100AA 		.word	-1442840320
+ 569 00e0 00FF00AA 		.word	-1442775296
+ 571              		.section	.text.radio_init,"ax",%progbits
+ 572              		.align	1
+ 573              		.global	radio_init
+ 574              		.syntax unified
+ 575              		.thumb
+ 576              		.thumb_func
+ 577              		.fpu softvfp
+ 579              	radio_init:
+ 580              		@ args = 0, pretend = 0, frame = 32
+ 581              		@ frame_needed = 0, uses_anonymous_args = 0
+ 582 0000 00B5     		push	{lr}
+ 583 0002 89B0     		sub	sp, sp, #36
+ 584 0004 FFF7FEFF 		bl	si446x_hal_init
+ 585 0008 FFF7FEFF 		bl	radio_get_id
+ARM GAS  /tmp/ccJr5l1f.s 			page 11
+
+
+ 586 000c 44F26343 		movw	r3, #17507
+ 587 0010 9842     		cmp	r0, r3
+ 588 0012 03D0     		beq	.L64
+ 589 0014 0020     		movs	r0, #0
+ 590              	.L61:
+ 591 0016 09B0     		add	sp, sp, #36
+ 592              		@ sp needed
+ 593 0018 5DF804FB 		ldr	pc, [sp], #4
+ 594              	.L64:
+ 595 001c FFF7FEFF 		bl	radio_reset
+ 596 0020 0E4B     		ldr	r3, .L65
+ 597 0022 93E80300 		ldm	r3, {r0, r1}
+ 598 0026 0690     		str	r0, [sp, #24]
+ 599 0028 ADF81C10 		strh	r1, [sp, #28]	@ movhi
+ 600 002c 0622     		movs	r2, #6
+ 601 002e 06A9     		add	r1, sp, #24
+ 602 0030 0220     		movs	r0, #2
+ 603 0032 FFF7FEFF 		bl	si446x_ctrl_send_cmd_stream
+ 604 0036 FFF7FEFF 		bl	si446x_ctrl_wait_cts
+ 605 003a 0020     		movs	r0, #0
+ 606 003c 0190     		str	r0, [sp, #4]
+ 607 003e 0290     		str	r0, [sp, #8]
+ 608 0040 0390     		str	r0, [sp, #12]
+ 609 0042 0490     		str	r0, [sp, #16]
+ 610 0044 0590     		str	r0, [sp, #20]
+ 611 0046 6223     		movs	r3, #98
+ 612 0048 8DF80430 		strb	r3, [sp, #4]
+ 613 004c 0122     		movs	r2, #1
+ 614 004e 01A9     		add	r1, sp, #4
+ 615 0050 FFF7FEFF 		bl	set_properties
+ 616 0054 FFF7FEFF 		bl	radio_configure_packet
+ 617 0058 0120     		movs	r0, #1
+ 618 005a DCE7     		b	.L61
+ 619              	.L66:
+ 620              		.align	2
+ 621              	.L65:
+ 622 005c 1C000000 		.word	.LANCHOR0+28
+ 624              		.section	.text.radio_set_power,"ax",%progbits
+ 625              		.align	1
+ 626              		.global	radio_set_power
+ 627              		.syntax unified
+ 628              		.thumb
+ 629              		.thumb_func
+ 630              		.fpu softvfp
+ 632              	radio_set_power:
+ 633              		@ args = 0, pretend = 0, frame = 8
+ 634              		@ frame_needed = 0, uses_anonymous_args = 0
+ 635 0000 00B5     		push	{lr}
+ 636 0002 83B0     		sub	sp, sp, #12
+ 637 0004 10F0800F 		tst	r0, #128
+ 638 0008 14D1     		bne	.L71
+ 639              	.L68:
+ 640 000a 0823     		movs	r3, #8
+ 641 000c 8DF80430 		strb	r3, [sp, #4]
+ 642 0010 8DF80500 		strb	r0, [sp, #5]
+ 643 0014 0023     		movs	r3, #0
+ 644 0016 8DF80630 		strb	r3, [sp, #6]
+ARM GAS  /tmp/ccJr5l1f.s 			page 12
+
+
+ 645 001a 3D23     		movs	r3, #61
+ 646 001c 8DF80730 		strb	r3, [sp, #7]
+ 647 0020 0422     		movs	r2, #4
+ 648 0022 0DEB0201 		add	r1, sp, r2
+ 649 0026 4FF40850 		mov	r0, #8704
+ 650 002a FFF7FEFF 		bl	set_properties
+ 651 002e 03B0     		add	sp, sp, #12
+ 652              		@ sp needed
+ 653 0030 5DF804FB 		ldr	pc, [sp], #4
+ 654              	.L71:
+ 655 0034 7F20     		movs	r0, #127
+ 656 0036 E8E7     		b	.L68
+ 658              		.section	.text.radio_init_morse,"ax",%progbits
+ 659              		.align	1
+ 660              		.global	radio_init_morse
+ 661              		.syntax unified
+ 662              		.thumb
+ 663              		.thumb_func
+ 664              		.fpu softvfp
+ 666              	radio_init_morse:
+ 667              		@ args = 0, pretend = 0, frame = 16
+ 668              		@ frame_needed = 0, uses_anonymous_args = 0
+ 669 0000 00B5     		push	{lr}
+ 670 0002 85B0     		sub	sp, sp, #20
+ 671 0004 02AB     		add	r3, sp, #8
+ 672 0006 0C4A     		ldr	r2, .L74
+ 673 0008 92E80300 		ldm	r2, {r0, r1}
+ 674 000c 83E80300 		stm	r3, {r0, r1}
+ 675 0010 0822     		movs	r2, #8
+ 676 0012 1946     		mov	r1, r3
+ 677 0014 4FF40050 		mov	r0, #8192
+ 678 0018 FFF7FEFF 		bl	set_properties
+ 679 001c 40F63C03 		movw	r3, #2108
+ 680 0020 0193     		str	r3, [sp, #4]
+ 681 0022 0422     		movs	r2, #4
+ 682 0024 0DEB0201 		add	r1, sp, r2
+ 683 0028 4FF48040 		mov	r0, #16384
+ 684 002c FFF7FEFF 		bl	set_properties
+ 685 0030 05B0     		add	sp, sp, #20
+ 686              		@ sp needed
+ 687 0032 5DF804FB 		ldr	pc, [sp], #4
+ 688              	.L75:
+ 689 0036 00BF     		.align	2
+ 690              	.L74:
+ 691 0038 24000000 		.word	.LANCHOR0+36
+ 693              		.section	.rodata
+ 694              		.align	2
+ 695              		.set	.LANCHOR0,. + 0
+ 696              	.LC0:
+ 697 0000 0000     		.ascii	"\000\000"
+ 698 0002 00       		.space	1
+ 699 0003 00       		.space	1
+ 700              	.LC1:
+ 701 0004 00000000 		.ascii	"\000\000\000\000\000\010\010"
+ 701      000808
+ 702 000b 00       		.space	1
+ 703              	.LC11:
+ARM GAS  /tmp/ccJr5l1f.s 			page 13
+
+
+ 704 000c 04140000 		.ascii	"\004\024\000\0001"
+ 704      31
+ 705 0011 000000   		.space	3
+ 706              	.LC12:
+ 707 0014 85000201 		.ascii	"\205\000\002\001\00000"
+ 707      003030
+ 708 001b 00       		.space	1
+ 709              	.LC13:
+ 710 001c 010001C9 		.ascii	"\001\000\001\311\303\200"
+ 710      C380
+ 711 0022 0000     		.space	2
+ 712              	.LC14:
+ 713 0024 A98001E0 		.ascii	"\251\200\001\340x\000\021\021"
+ 713      78001111 
+ 714              		.ident	"GCC: (15:10.3-2021.07-4) 10.3.1 20210621 (release)"
+ARM GAS  /tmp/ccJr5l1f.s 			page 14
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 radio.c
+     /tmp/ccJr5l1f.s:14     .text.radio_get_id:0000000000000000 $t
+     /tmp/ccJr5l1f.s:22     .text.radio_get_id:0000000000000000 radio_get_id
+     /tmp/ccJr5l1f.s:48     .text.radio_reset:0000000000000000 $t
+     /tmp/ccJr5l1f.s:55     .text.radio_reset:0000000000000000 radio_reset
+     /tmp/ccJr5l1f.s:74     .text.radio_reset:0000000000000024 $d
+     /tmp/ccJr5l1f.s:77     .text.radio_sleep:0000000000000000 $t
+     /tmp/ccJr5l1f.s:84     .text.radio_sleep:0000000000000000 radio_sleep
+     /tmp/ccJr5l1f.s:96     .text.radio_sleep:000000000000000c $d
+     /tmp/ccJr5l1f.s:99     .text.radio_get_state:0000000000000000 $t
+     /tmp/ccJr5l1f.s:106    .text.radio_get_state:0000000000000000 radio_get_state
+     /tmp/ccJr5l1f.s:128    .text.radio_get_state:000000000000002c $d
+     /tmp/ccJr5l1f.s:131    .text.radio_set_state:0000000000000000 $t
+     /tmp/ccJr5l1f.s:138    .text.radio_set_state:0000000000000000 radio_set_state
+     /tmp/ccJr5l1f.s:154    .text.radio_start_tx:0000000000000000 $t
+     /tmp/ccJr5l1f.s:161    .text.radio_start_tx:0000000000000000 radio_start_tx
+     /tmp/ccJr5l1f.s:177    .text.radio_start_rx:0000000000000000 $t
+     /tmp/ccJr5l1f.s:184    .text.radio_start_rx:0000000000000000 radio_start_rx
+     /tmp/ccJr5l1f.s:205    .text.radio_start_rx:0000000000000028 $d
+     /tmp/ccJr5l1f.s:208    .rodata.print_state.str1.4:0000000000000000 $d
+     /tmp/ccJr5l1f.s:233    .text.print_state:0000000000000000 $t
+     /tmp/ccJr5l1f.s:240    .text.print_state:0000000000000000 print_state
+     /tmp/ccJr5l1f.s:249    .text.print_state:000000000000000e $d
+     /tmp/ccJr5l1f.s:295    .text.print_state:0000000000000058 $d
+     /tmp/ccJr5l1f.s:305    .rodata.radio_get_interrupt_status.str1.4:0000000000000000 $d
+     /tmp/ccJr5l1f.s:309    .text.radio_get_interrupt_status:0000000000000000 $t
+     /tmp/ccJr5l1f.s:316    .text.radio_get_interrupt_status:0000000000000000 radio_get_interrupt_status
+     /tmp/ccJr5l1f.s:351    .text.radio_get_interrupt_status:000000000000004c $d
+     /tmp/ccJr5l1f.s:354    .text.radio_clear_interrupt_status:0000000000000000 $t
+     /tmp/ccJr5l1f.s:361    .text.radio_clear_interrupt_status:0000000000000000 radio_clear_interrupt_status
+     /tmp/ccJr5l1f.s:389    .text.radio_clear_interrupt_status:000000000000003c $d
+     /tmp/ccJr5l1f.s:392    .text.radio_tx:0000000000000000 $t
+     /tmp/ccJr5l1f.s:399    .text.radio_tx:0000000000000000 radio_tx
+     /tmp/ccJr5l1f.s:433    .text.set_properties:0000000000000000 $t
+     /tmp/ccJr5l1f.s:440    .text.set_properties:0000000000000000 set_properties
+     /tmp/ccJr5l1f.s:476    .text.radio_configure_packet:0000000000000000 $t
+     /tmp/ccJr5l1f.s:483    .text.radio_configure_packet:0000000000000000 radio_configure_packet
+     /tmp/ccJr5l1f.s:566    .text.radio_configure_packet:00000000000000d4 $d
+     /tmp/ccJr5l1f.s:572    .text.radio_init:0000000000000000 $t
+     /tmp/ccJr5l1f.s:579    .text.radio_init:0000000000000000 radio_init
+     /tmp/ccJr5l1f.s:622    .text.radio_init:000000000000005c $d
+     /tmp/ccJr5l1f.s:625    .text.radio_set_power:0000000000000000 $t
+     /tmp/ccJr5l1f.s:632    .text.radio_set_power:0000000000000000 radio_set_power
+     /tmp/ccJr5l1f.s:659    .text.radio_init_morse:0000000000000000 $t
+     /tmp/ccJr5l1f.s:666    .text.radio_init_morse:0000000000000000 radio_init_morse
+     /tmp/ccJr5l1f.s:691    .text.radio_init_morse:0000000000000038 $d
+     /tmp/ccJr5l1f.s:694    .rodata:0000000000000000 $d
+     /tmp/ccJr5l1f.s:258    .text.print_state:0000000000000017 $d
+     /tmp/ccJr5l1f.s:258    .text.print_state:0000000000000018 $t
+
+UNDEFINED SYMBOLS
+si446x_ctrl_send_cmd
+si446x_ctrl_get_response
+delay_ms
+si446x_ctrl_send_cmd_stream
+si446x_ctrl_wait_cts
+ARM GAS  /tmp/ccJr5l1f.s 			page 15
+
+
+usart_txln
+si446x_hal_init

@@ -1,0 +1,698 @@
+
+Discarded input sections
+
+ .text          0x0000000000000000        0x0 build/crt.o
+ .data          0x0000000000000000        0x0 build/crt.o
+ .bss           0x0000000000000000        0x0 build/crt.o
+ .text.SystemInit
+                0x0000000000000000        0x2 build/crt.o
+ .text          0x0000000000000000        0x0 build/vectors_stm32f10x_md.o
+ .data          0x0000000000000000        0x0 build/vectors_stm32f10x_md.o
+ .bss           0x0000000000000000        0x0 build/vectors_stm32f10x_md.o
+ .text.SysTick_Handler
+                0x0000000000000000        0x2 build/vectors_stm32f10x_md.o
+ .text          0x0000000000000000        0x0 build/core_cm3.o
+ .data          0x0000000000000000        0x0 build/core_cm3.o
+ .bss           0x0000000000000000        0x0 build/core_cm3.o
+ .text.__get_PSP
+                0x0000000000000000        0x8 build/core_cm3.o
+ .text.__set_PSP
+                0x0000000000000000        0x6 build/core_cm3.o
+ .text.__get_MSP
+                0x0000000000000000        0x8 build/core_cm3.o
+ .text.__set_MSP
+                0x0000000000000000        0x6 build/core_cm3.o
+ .text.__get_BASEPRI
+                0x0000000000000000        0x6 build/core_cm3.o
+ .text.__set_BASEPRI
+                0x0000000000000000        0x6 build/core_cm3.o
+ .text.__get_PRIMASK
+                0x0000000000000000        0x6 build/core_cm3.o
+ .text.__set_PRIMASK
+                0x0000000000000000        0x6 build/core_cm3.o
+ .text.__get_FAULTMASK
+                0x0000000000000000        0x6 build/core_cm3.o
+ .text.__set_FAULTMASK
+                0x0000000000000000        0x6 build/core_cm3.o
+ .text.__get_CONTROL
+                0x0000000000000000        0x6 build/core_cm3.o
+ .text.__set_CONTROL
+                0x0000000000000000        0x6 build/core_cm3.o
+ .text.__REV    0x0000000000000000        0x4 build/core_cm3.o
+ .text.__REV16  0x0000000000000000        0x4 build/core_cm3.o
+ .text.__REVSH  0x0000000000000000        0x4 build/core_cm3.o
+ .text.__RBIT   0x0000000000000000        0x6 build/core_cm3.o
+ .text.__LDREXB
+                0x0000000000000000        0x8 build/core_cm3.o
+ .text.__LDREXH
+                0x0000000000000000        0x8 build/core_cm3.o
+ .text.__LDREXW
+                0x0000000000000000        0x6 build/core_cm3.o
+ .text.__STREXB
+                0x0000000000000000        0x8 build/core_cm3.o
+ .text.__STREXH
+                0x0000000000000000        0x8 build/core_cm3.o
+ .text.__STREXW
+                0x0000000000000000        0x6 build/core_cm3.o
+ .comment       0x0000000000000000       0x34 build/core_cm3.o
+ .ARM.attributes
+                0x0000000000000000       0x2d build/core_cm3.o
+ .text          0x0000000000000000        0x0 build/system_stm32f10x.o
+ .data          0x0000000000000000        0x0 build/system_stm32f10x.o
+ .bss           0x0000000000000000        0x0 build/system_stm32f10x.o
+ .text.SystemCoreClockUpdate
+                0x0000000000000000       0x94 build/system_stm32f10x.o
+ .data.AHBPrescTable
+                0x0000000000000000       0x10 build/system_stm32f10x.o
+ .text          0x0000000000000000        0x0 build/delay.o
+ .data          0x0000000000000000        0x0 build/delay.o
+ .bss           0x0000000000000000        0x0 build/delay.o
+ .text          0x0000000000000000        0x0 build/usart.o
+ .data          0x0000000000000000        0x0 build/usart.o
+ .bss           0x0000000000000000        0x0 build/usart.o
+ .text          0x0000000000000000        0x0 build/util.o
+ .data          0x0000000000000000        0x0 build/util.o
+ .bss           0x0000000000000000        0x0 build/util.o
+ .text.get_str  0x0000000000000000       0x2e build/util.o
+ .text          0x0000000000000000        0x0 build/mini_morse.o
+ .data          0x0000000000000000        0x0 build/mini_morse.o
+ .bss           0x0000000000000000        0x0 build/mini_morse.o
+ .text.character_to_code
+                0x0000000000000000       0x6c build/mini_morse.o
+ .text.mini_morse_encode_char
+                0x0000000000000000       0x80 build/mini_morse.o
+ .text.mini_morse_tx
+                0x0000000000000000       0x1a build/mini_morse.o
+ .rodata.alphameric
+                0x0000000000000000       0x24 build/mini_morse.o
+ .rodata.punctuation
+                0x0000000000000000       0x22 build/mini_morse.o
+ .comment       0x0000000000000000       0x34 build/mini_morse.o
+ .ARM.attributes
+                0x0000000000000000       0x2d build/mini_morse.o
+ .text          0x0000000000000000        0x0 build/radio.o
+ .data          0x0000000000000000        0x0 build/radio.o
+ .bss           0x0000000000000000        0x0 build/radio.o
+ .text.radio_sleep
+                0x0000000000000000       0x10 build/radio.o
+ .text.radio_get_state
+                0x0000000000000000       0x30 build/radio.o
+ .text.radio_set_state
+                0x0000000000000000       0x1e build/radio.o
+ .text.radio_start_tx
+                0x0000000000000000       0x1c build/radio.o
+ .text.radio_start_rx
+                0x0000000000000000       0x2c build/radio.o
+ .rodata.print_state.str1.4
+                0x0000000000000000       0x4d build/radio.o
+ .text.print_state
+                0x0000000000000000       0x78 build/radio.o
+ .rodata.radio_get_interrupt_status.str1.4
+                0x0000000000000000        0x4 build/radio.o
+ .text.radio_get_interrupt_status
+                0x0000000000000000       0x50 build/radio.o
+ .text.radio_clear_interrupt_status
+                0x0000000000000000       0x40 build/radio.o
+ .text.radio_tx
+                0x0000000000000000       0x46 build/radio.o
+ .text.radio_set_power
+                0x0000000000000000       0x38 build/radio.o
+ .text.radio_init_morse
+                0x0000000000000000       0x3c build/radio.o
+ .text          0x0000000000000000        0x0 build/si446x_ctrl.o
+ .data          0x0000000000000000        0x0 build/si446x_ctrl.o
+ .bss           0x0000000000000000        0x0 build/si446x_ctrl.o
+ .text.si446x_ctrl_send_stream
+                0x0000000000000000       0x24 build/si446x_ctrl.o
+ .text          0x0000000000000000        0x0 build/si446x_hal.o
+ .data          0x0000000000000000        0x0 build/si446x_hal.o
+ .bss           0x0000000000000000        0x0 build/si446x_hal.o
+ .text          0x0000000000000000        0x0 build/main_si446x.o
+ .data          0x0000000000000000        0x0 build/main_si446x.o
+ .bss           0x0000000000000000        0x0 build/main_si446x.o
+ .text.mini_morse_start_tx
+                0x0000000000000000       0x14 build/main_si446x.o
+ .text.mini_morse_stop_tx
+                0x0000000000000000       0x14 build/main_si446x.o
+ .text.mini_morse_delay
+                0x0000000000000000        0x8 build/main_si446x.o
+ .text.receive_data
+                0x0000000000000000       0xbc build/main_si446x.o
+ .rodata.radio_msg
+                0x0000000000000000        0x9 build/main_si446x.o
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+FLASH            0x0000000008000000 0x0000000000008000 xr
+RAM              0x0000000020000000 0x0000000000005000 xrw
+*default*        0x0000000000000000 0xffffffffffffffff
+
+Linker script and memory map
+
+LOAD build/crt.o
+LOAD build/vectors_stm32f10x_md.o
+LOAD build/core_cm3.o
+LOAD build/system_stm32f10x.o
+LOAD build/delay.o
+LOAD build/usart.o
+LOAD build/util.o
+LOAD build/mini_morse.o
+LOAD build/radio.o
+LOAD build/si446x_ctrl.o
+LOAD build/si446x_hal.o
+LOAD build/main_si446x.o
+LOAD /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v7-m/nofp/libnosys.a
+LOAD /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v7-m/nofp/libstdc++.a
+LOAD /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v7-m/nofp/libm.a
+LOAD /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v7-m/nofp/libc.a
+START GROUP
+LOAD /usr/lib/gcc/arm-none-eabi/10.3.1/thumb/v7-m/nofp/libgcc.a
+LOAD /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v7-m/nofp/libc.a
+END GROUP
+
+.text           0x0000000008000000      0xe20
+                0x0000000008000000                _stext = .
+ CREATE_OBJECT_SYMBOLS
+ *(.vectors)
+ .vectors       0x0000000008000000       0xec build/vectors_stm32f10x_md.o
+                0x0000000008000000                gVectors
+ *(.text)
+ *(.text.*)
+ .text.ResetHandler
+                0x00000000080000ec       0x54 build/crt.o
+                0x00000000080000ec                ResetHandler
+ .text.NMI_Handler
+                0x0000000008000140        0x2 build/vectors_stm32f10x_md.o
+                0x0000000008000140                NMI_Handler
+ .text.HardFault_Handler
+                0x0000000008000142        0x2 build/vectors_stm32f10x_md.o
+                0x0000000008000142                HardFault_Handler
+ .text.MemManage_Handler
+                0x0000000008000144        0x2 build/vectors_stm32f10x_md.o
+                0x0000000008000144                MemManage_Handler
+ .text.BusFault_Handler
+                0x0000000008000146        0x2 build/vectors_stm32f10x_md.o
+                0x0000000008000146                BusFault_Handler
+ .text.UsageFault_Handler
+                0x0000000008000148        0x2 build/vectors_stm32f10x_md.o
+                0x0000000008000148                UsageFault_Handler
+ .text.SVC_Handler
+                0x000000000800014a        0x2 build/vectors_stm32f10x_md.o
+                0x000000000800014a                SVC_Handler
+ .text.DebugMon_Handler
+                0x000000000800014c        0x2 build/vectors_stm32f10x_md.o
+                0x000000000800014c                DebugMon_Handler
+ .text.PendSV_Handler
+                0x000000000800014e        0x2 build/vectors_stm32f10x_md.o
+                0x000000000800014e                PendSV_Handler
+ .text.WWDG_IRQHandler
+                0x0000000008000150        0x2 build/vectors_stm32f10x_md.o
+                0x0000000008000150                WWDG_IRQHandler
+ .text.PVD_IRQHandler
+                0x0000000008000152        0x2 build/vectors_stm32f10x_md.o
+                0x0000000008000152                PVD_IRQHandler
+ .text.TAMPER_IRQHandler
+                0x0000000008000154        0x2 build/vectors_stm32f10x_md.o
+                0x0000000008000154                TAMPER_IRQHandler
+ .text.RTC_IRQHandler
+                0x0000000008000156        0x2 build/vectors_stm32f10x_md.o
+                0x0000000008000156                RTC_IRQHandler
+ .text.FLASH_IRQHandler
+                0x0000000008000158        0x2 build/vectors_stm32f10x_md.o
+                0x0000000008000158                FLASH_IRQHandler
+ .text.RCC_IRQHandler
+                0x000000000800015a        0x2 build/vectors_stm32f10x_md.o
+                0x000000000800015a                RCC_IRQHandler
+ .text.EXTI0_IRQHandler
+                0x000000000800015c        0x2 build/vectors_stm32f10x_md.o
+                0x000000000800015c                EXTI0_IRQHandler
+ .text.EXTI1_IRQHandler
+                0x000000000800015e        0x2 build/vectors_stm32f10x_md.o
+                0x000000000800015e                EXTI1_IRQHandler
+ .text.EXTI2_IRQHandler
+                0x0000000008000160        0x2 build/vectors_stm32f10x_md.o
+                0x0000000008000160                EXTI2_IRQHandler
+ .text.EXTI3_IRQHandler
+                0x0000000008000162        0x2 build/vectors_stm32f10x_md.o
+                0x0000000008000162                EXTI3_IRQHandler
+ .text.EXTI4_IRQHandler
+                0x0000000008000164        0x2 build/vectors_stm32f10x_md.o
+                0x0000000008000164                EXTI4_IRQHandler
+ .text.DMA1_Channel1_IRQHandler
+                0x0000000008000166        0x2 build/vectors_stm32f10x_md.o
+                0x0000000008000166                DMA1_Channel1_IRQHandler
+ .text.DMA1_Channel2_IRQHandler
+                0x0000000008000168        0x2 build/vectors_stm32f10x_md.o
+                0x0000000008000168                DMA1_Channel2_IRQHandler
+ .text.DMA1_Channel3_IRQHandler
+                0x000000000800016a        0x2 build/vectors_stm32f10x_md.o
+                0x000000000800016a                DMA1_Channel3_IRQHandler
+ .text.DMA1_Channel4_IRQHandler
+                0x000000000800016c        0x2 build/vectors_stm32f10x_md.o
+                0x000000000800016c                DMA1_Channel4_IRQHandler
+ .text.DMA1_Channel5_IRQHandler
+                0x000000000800016e        0x2 build/vectors_stm32f10x_md.o
+                0x000000000800016e                DMA1_Channel5_IRQHandler
+ .text.DMA1_Channel6_IRQHandler
+                0x0000000008000170        0x2 build/vectors_stm32f10x_md.o
+                0x0000000008000170                DMA1_Channel6_IRQHandler
+ .text.DMA1_Channel7_IRQHandler
+                0x0000000008000172        0x2 build/vectors_stm32f10x_md.o
+                0x0000000008000172                DMA1_Channel7_IRQHandler
+ .text.ADC1_2_IRQHandler
+                0x0000000008000174        0x2 build/vectors_stm32f10x_md.o
+                0x0000000008000174                ADC1_2_IRQHandler
+ .text.USB_HP_CAN_TX_IRQHandler
+                0x0000000008000176        0x2 build/vectors_stm32f10x_md.o
+                0x0000000008000176                USB_HP_CAN_TX_IRQHandler
+ .text.USB_LP_CAN_RX0_IRQHandler
+                0x0000000008000178        0x2 build/vectors_stm32f10x_md.o
+                0x0000000008000178                USB_LP_CAN_RX0_IRQHandler
+ .text.CAN_RX1_IRQHandler
+                0x000000000800017a        0x2 build/vectors_stm32f10x_md.o
+                0x000000000800017a                CAN_RX1_IRQHandler
+ .text.CAN_SCE_IRQHandler
+                0x000000000800017c        0x2 build/vectors_stm32f10x_md.o
+                0x000000000800017c                CAN_SCE_IRQHandler
+ .text.EXTI9_5_IRQHandler
+                0x000000000800017e        0x2 build/vectors_stm32f10x_md.o
+                0x000000000800017e                EXTI9_5_IRQHandler
+ .text.TIM1_BRK_IRQHandler
+                0x0000000008000180        0x2 build/vectors_stm32f10x_md.o
+                0x0000000008000180                TIM1_BRK_IRQHandler
+ .text.TIM1_UP_IRQHandler
+                0x0000000008000182        0x2 build/vectors_stm32f10x_md.o
+                0x0000000008000182                TIM1_UP_IRQHandler
+ .text.TIM1_TRG_COM_IRQHandler
+                0x0000000008000184        0x2 build/vectors_stm32f10x_md.o
+                0x0000000008000184                TIM1_TRG_COM_IRQHandler
+ .text.TIM1_CC_IRQHandler
+                0x0000000008000186        0x2 build/vectors_stm32f10x_md.o
+                0x0000000008000186                TIM1_CC_IRQHandler
+ .text.TIM2_IRQHandler
+                0x0000000008000188        0x2 build/vectors_stm32f10x_md.o
+                0x0000000008000188                TIM2_IRQHandler
+ .text.TIM3_IRQHandler
+                0x000000000800018a        0x2 build/vectors_stm32f10x_md.o
+                0x000000000800018a                TIM3_IRQHandler
+ .text.TIM4_IRQHandler
+                0x000000000800018c        0x2 build/vectors_stm32f10x_md.o
+                0x000000000800018c                TIM4_IRQHandler
+ .text.I2C1_EV_IRQHandler
+                0x000000000800018e        0x2 build/vectors_stm32f10x_md.o
+                0x000000000800018e                I2C1_EV_IRQHandler
+ .text.I2C1_ER_IRQHandler
+                0x0000000008000190        0x2 build/vectors_stm32f10x_md.o
+                0x0000000008000190                I2C1_ER_IRQHandler
+ .text.I2C2_EV_IRQHandler
+                0x0000000008000192        0x2 build/vectors_stm32f10x_md.o
+                0x0000000008000192                I2C2_EV_IRQHandler
+ .text.I2C2_ER_IRQHandler
+                0x0000000008000194        0x2 build/vectors_stm32f10x_md.o
+                0x0000000008000194                I2C2_ER_IRQHandler
+ .text.SPI1_IRQHandler
+                0x0000000008000196        0x2 build/vectors_stm32f10x_md.o
+                0x0000000008000196                SPI1_IRQHandler
+ .text.SPI2_IRQHandler
+                0x0000000008000198        0x2 build/vectors_stm32f10x_md.o
+                0x0000000008000198                SPI2_IRQHandler
+ .text.USART1_IRQHandler
+                0x000000000800019a        0x2 build/vectors_stm32f10x_md.o
+                0x000000000800019a                USART1_IRQHandler
+ .text.USART2_IRQHandler
+                0x000000000800019c        0x2 build/vectors_stm32f10x_md.o
+                0x000000000800019c                USART2_IRQHandler
+ .text.USART3_IRQHandler
+                0x000000000800019e        0x2 build/vectors_stm32f10x_md.o
+                0x000000000800019e                USART3_IRQHandler
+ .text.EXTI15_10_IRQHandler
+                0x00000000080001a0        0x2 build/vectors_stm32f10x_md.o
+                0x00000000080001a0                EXTI15_10_IRQHandler
+ .text.RTCAlarm_IRQHandler
+                0x00000000080001a2        0x2 build/vectors_stm32f10x_md.o
+                0x00000000080001a2                RTCAlarm_IRQHandler
+ .text.USBWakeUp_IRQHandler
+                0x00000000080001a4        0x2 build/vectors_stm32f10x_md.o
+                0x00000000080001a4                USBWakeUp_IRQHandler
+ *fill*         0x00000000080001a6        0x2 00000000
+ .text.SetSysClockTo72
+                0x00000000080001a8       0xc4 build/system_stm32f10x.o
+ .text.SetSysClock
+                0x000000000800026c        0x8 build/system_stm32f10x.o
+ .text.SystemInit
+                0x0000000008000274       0x50 build/system_stm32f10x.o
+                0x0000000008000274                SystemInit
+ .text.delay_init
+                0x00000000080002c4       0x34 build/delay.o
+                0x00000000080002c4                delay_init
+ .text.delay_ms
+                0x00000000080002f8       0x34 build/delay.o
+                0x00000000080002f8                delay_ms
+ .text.SysTick_Handler
+                0x000000000800032c       0x10 build/delay.o
+                0x000000000800032c                SysTick_Handler
+ .text.usart_init
+                0x000000000800033c       0x74 build/usart.o
+                0x000000000800033c                usart_init
+ .text.usart_tx
+                0x00000000080003b0       0x20 build/usart.o
+                0x00000000080003b0                usart_tx
+ .text.usart_txln
+                0x00000000080003d0       0x58 build/usart.o
+                0x00000000080003d0                usart_txln
+ .text.led_init
+                0x0000000008000428       0x2c build/util.o
+                0x0000000008000428                led_init
+ .text.radio_get_id
+                0x0000000008000454       0x32 build/radio.o
+                0x0000000008000454                radio_get_id
+ *fill*         0x0000000008000486        0x2 00000000
+ .text.radio_reset
+                0x0000000008000488       0x28 build/radio.o
+                0x0000000008000488                radio_reset
+ .text.set_properties
+                0x00000000080004b0       0x4e build/radio.o
+                0x00000000080004b0                set_properties
+ *fill*         0x00000000080004fe        0x2 00000000
+ .text.radio_configure_packet
+                0x0000000008000500       0xe4 build/radio.o
+                0x0000000008000500                radio_configure_packet
+ .text.radio_init
+                0x00000000080005e4       0x60 build/radio.o
+                0x00000000080005e4                radio_init
+ .text.si446x_ctrl_wait_cts
+                0x0000000008000644       0x3c build/si446x_ctrl.o
+                0x0000000008000644                si446x_ctrl_wait_cts
+ .text.si446x_ctrl_get_response
+                0x0000000008000680       0x38 build/si446x_ctrl.o
+                0x0000000008000680                si446x_ctrl_get_response
+ .text.si446x_ctrl_send_cmd
+                0x00000000080006b8       0x24 build/si446x_ctrl.o
+                0x00000000080006b8                si446x_ctrl_send_cmd
+ .text.si446x_ctrl_send_cmd_stream
+                0x00000000080006dc       0x30 build/si446x_ctrl.o
+                0x00000000080006dc                si446x_ctrl_send_cmd_stream
+ .text.si446x_hal_morse_init
+                0x000000000800070c       0x28 build/si446x_hal.o
+                0x000000000800070c                si446x_hal_morse_init
+ .text.si446x_hal_spi_init
+                0x0000000008000734       0x84 build/si446x_hal.o
+                0x0000000008000734                si446x_hal_spi_init
+ .text.si446x_hal_sdn_init
+                0x00000000080007b8       0x28 build/si446x_hal.o
+                0x00000000080007b8                si446x_hal_sdn_init
+ .text.si446x_hal_init
+                0x00000000080007e0       0x10 build/si446x_hal.o
+                0x00000000080007e0                si446x_hal_init
+ .text.si446x_hal_spi_write_byte
+                0x00000000080007f0       0x20 build/si446x_hal.o
+                0x00000000080007f0                si446x_hal_spi_write_byte
+ .text.si446x_hal_spi_read_byte
+                0x0000000008000810       0x28 build/si446x_hal.o
+                0x0000000008000810                si446x_hal_spi_read_byte
+ .text.si446x_hal_spi_read
+                0x0000000008000838       0x1c build/si446x_hal.o
+                0x0000000008000838                si446x_hal_spi_read
+ .text.si446x_hal_spi_write
+                0x0000000008000854       0x1a build/si446x_hal.o
+                0x0000000008000854                si446x_hal_spi_write
+ .text.gfsk_rx  0x000000000800086e      0x47c build/main_si446x.o
+                0x000000000800086e                gfsk_rx
+ *fill*         0x0000000008000cea        0x2 00000000
+ .text.RX_Interrupt_Handler
+                0x0000000008000cec       0x74 build/main_si446x.o
+                0x0000000008000cec                RX_Interrupt_Handler
+ .text.main     0x0000000008000d60       0x4c build/main_si446x.o
+                0x0000000008000d60                main
+                0x0000000008000dac                . = ALIGN (0x4)
+ *(.rodata)
+ .rodata        0x0000000008000dac       0x2c build/radio.o
+ *(.rodata.*)
+ .rodata.usart_txln.str1.4
+                0x0000000008000dd8        0x3 build/usart.o
+ *fill*         0x0000000008000ddb        0x1 00000000
+ .rodata.receive_data.str1.4
+                0x0000000008000ddc       0x10 build/main_si446x.o
+                                         0x11 (size before relaxing)
+ .rodata.RX_Interrupt_Handler.str1.4
+                0x0000000008000dec        0x5 build/main_si446x.o
+ *fill*         0x0000000008000df1        0x3 00000000
+ .rodata.main.str1.4
+                0x0000000008000df4       0x2c build/main_si446x.o
+                0x0000000008000e20                . = ALIGN (0x4)
+                0x0000000008000e20                _etext = .
+
+.glue_7         0x0000000008000e20        0x0
+ .glue_7        0x0000000008000e20        0x0 linker stubs
+
+.glue_7t        0x0000000008000e20        0x0
+ .glue_7t       0x0000000008000e20        0x0 linker stubs
+
+.vfp11_veneer   0x0000000008000e20        0x0
+ .vfp11_veneer  0x0000000008000e20        0x0 linker stubs
+
+.v4_bx          0x0000000008000e20        0x0
+ .v4_bx         0x0000000008000e20        0x0 linker stubs
+
+.iplt           0x0000000008000e20        0x0
+ .iplt          0x0000000008000e20        0x0 build/crt.o
+
+.rel.dyn        0x0000000008000e20        0x0
+ .rel.iplt      0x0000000008000e20        0x0 build/crt.o
+
+.data           0x0000000020000000        0x4 load address 0x0000000008000e20
+                0x0000000020000000                . = ALIGN (0x4)
+                0x0000000020000000                _sdata = .
+ *(.data)
+ *(.data.*)
+ .data.SystemCoreClock
+                0x0000000020000000        0x4 build/system_stm32f10x.o
+                0x0000000020000000                SystemCoreClock
+                0x0000000020000004                . = ALIGN (0x4)
+ *(.fastrun)
+ *(.fastrun.*)
+                0x0000000020000004                . = ALIGN (0x4)
+                0x0000000020000004                _edata = .
+
+.igot.plt       0x0000000020000004        0x0 load address 0x0000000008000e24
+ .igot.plt      0x0000000020000004        0x0 build/crt.o
+
+.bss            0x0000000020000004        0x4 load address 0x0000000008000e24
+                0x0000000020000004                . = ALIGN (0x4)
+                0x0000000020000004                _sbss = .
+ *(.bss)
+ *(.bss.*)
+ .bss.timekeeper
+                0x0000000020000004        0x4 build/delay.o
+                0x0000000020000008                . = ALIGN (0x4)
+                0x0000000020000008                _ebss = .
+                0x0000000020005000                _estack = (ORIGIN (RAM) + LENGTH (RAM))
+OUTPUT(build/main.elf elf32-littlearm)
+LOAD linker stubs
+
+.comment        0x0000000000000000       0x33
+ .comment       0x0000000000000000       0x33 build/crt.o
+                                         0x34 (size before relaxing)
+ .comment       0x0000000000000033       0x34 build/vectors_stm32f10x_md.o
+ .comment       0x0000000000000033       0x34 build/system_stm32f10x.o
+ .comment       0x0000000000000033       0x34 build/delay.o
+ .comment       0x0000000000000033       0x34 build/usart.o
+ .comment       0x0000000000000033       0x34 build/util.o
+ .comment       0x0000000000000033       0x34 build/radio.o
+ .comment       0x0000000000000033       0x34 build/si446x_ctrl.o
+ .comment       0x0000000000000033       0x34 build/si446x_hal.o
+ .comment       0x0000000000000033       0x34 build/main_si446x.o
+
+.ARM.attributes
+                0x0000000000000000       0x2d
+ .ARM.attributes
+                0x0000000000000000       0x2d build/crt.o
+ .ARM.attributes
+                0x000000000000002d       0x2d build/vectors_stm32f10x_md.o
+ .ARM.attributes
+                0x000000000000005a       0x2d build/system_stm32f10x.o
+ .ARM.attributes
+                0x0000000000000087       0x2d build/delay.o
+ .ARM.attributes
+                0x00000000000000b4       0x2d build/usart.o
+ .ARM.attributes
+                0x00000000000000e1       0x2d build/util.o
+ .ARM.attributes
+                0x000000000000010e       0x2d build/radio.o
+ .ARM.attributes
+                0x000000000000013b       0x2d build/si446x_ctrl.o
+ .ARM.attributes
+                0x0000000000000168       0x2d build/si446x_hal.o
+ .ARM.attributes
+                0x0000000000000195       0x2d build/main_si446x.o
+
+Cross Reference Table
+
+Symbol                                            File
+ADC1_2_IRQHandler                                 build/vectors_stm32f10x_md.o
+AHBPrescTable                                     build/system_stm32f10x.o
+BusFault_Handler                                  build/vectors_stm32f10x_md.o
+CAN_RX1_IRQHandler                                build/vectors_stm32f10x_md.o
+CAN_SCE_IRQHandler                                build/vectors_stm32f10x_md.o
+DMA1_Channel1_IRQHandler                          build/vectors_stm32f10x_md.o
+DMA1_Channel2_IRQHandler                          build/vectors_stm32f10x_md.o
+DMA1_Channel3_IRQHandler                          build/vectors_stm32f10x_md.o
+DMA1_Channel4_IRQHandler                          build/vectors_stm32f10x_md.o
+DMA1_Channel5_IRQHandler                          build/vectors_stm32f10x_md.o
+DMA1_Channel6_IRQHandler                          build/vectors_stm32f10x_md.o
+DMA1_Channel7_IRQHandler                          build/vectors_stm32f10x_md.o
+DebugMon_Handler                                  build/vectors_stm32f10x_md.o
+EXTI0_IRQHandler                                  build/vectors_stm32f10x_md.o
+EXTI15_10_IRQHandler                              build/vectors_stm32f10x_md.o
+EXTI1_IRQHandler                                  build/vectors_stm32f10x_md.o
+EXTI2_IRQHandler                                  build/vectors_stm32f10x_md.o
+EXTI3_IRQHandler                                  build/vectors_stm32f10x_md.o
+EXTI4_IRQHandler                                  build/vectors_stm32f10x_md.o
+EXTI9_5_IRQHandler                                build/vectors_stm32f10x_md.o
+FLASH_IRQHandler                                  build/vectors_stm32f10x_md.o
+HardFault_Handler                                 build/vectors_stm32f10x_md.o
+I2C1_ER_IRQHandler                                build/vectors_stm32f10x_md.o
+I2C1_EV_IRQHandler                                build/vectors_stm32f10x_md.o
+I2C2_ER_IRQHandler                                build/vectors_stm32f10x_md.o
+I2C2_EV_IRQHandler                                build/vectors_stm32f10x_md.o
+MemManage_Handler                                 build/vectors_stm32f10x_md.o
+NMI_Handler                                       build/vectors_stm32f10x_md.o
+PVD_IRQHandler                                    build/vectors_stm32f10x_md.o
+PendSV_Handler                                    build/vectors_stm32f10x_md.o
+RCC_IRQHandler                                    build/vectors_stm32f10x_md.o
+RTCAlarm_IRQHandler                               build/vectors_stm32f10x_md.o
+RTC_IRQHandler                                    build/vectors_stm32f10x_md.o
+RX_Interrupt_Handler                              build/main_si446x.o
+ResetHandler                                      build/crt.o
+                                                  build/vectors_stm32f10x_md.o
+SPI1_IRQHandler                                   build/vectors_stm32f10x_md.o
+SPI2_IRQHandler                                   build/vectors_stm32f10x_md.o
+SVC_Handler                                       build/vectors_stm32f10x_md.o
+SysTick_Handler                                   build/delay.o
+                                                  build/vectors_stm32f10x_md.o
+SystemCoreClock                                   build/system_stm32f10x.o
+                                                  build/usart.o
+                                                  build/delay.o
+SystemCoreClockUpdate                             build/system_stm32f10x.o
+SystemInit                                        build/system_stm32f10x.o
+                                                  build/crt.o
+TAMPER_IRQHandler                                 build/vectors_stm32f10x_md.o
+TIM1_BRK_IRQHandler                               build/vectors_stm32f10x_md.o
+TIM1_CC_IRQHandler                                build/vectors_stm32f10x_md.o
+TIM1_TRG_COM_IRQHandler                           build/vectors_stm32f10x_md.o
+TIM1_UP_IRQHandler                                build/vectors_stm32f10x_md.o
+TIM2_IRQHandler                                   build/vectors_stm32f10x_md.o
+TIM3_IRQHandler                                   build/vectors_stm32f10x_md.o
+TIM4_IRQHandler                                   build/vectors_stm32f10x_md.o
+USART1_IRQHandler                                 build/vectors_stm32f10x_md.o
+USART2_IRQHandler                                 build/vectors_stm32f10x_md.o
+USART3_IRQHandler                                 build/vectors_stm32f10x_md.o
+USBWakeUp_IRQHandler                              build/vectors_stm32f10x_md.o
+USB_HP_CAN_TX_IRQHandler                          build/vectors_stm32f10x_md.o
+USB_LP_CAN_RX0_IRQHandler                         build/vectors_stm32f10x_md.o
+UsageFault_Handler                                build/vectors_stm32f10x_md.o
+WWDG_IRQHandler                                   build/vectors_stm32f10x_md.o
+__LDREXB                                          build/core_cm3.o
+__LDREXH                                          build/core_cm3.o
+__LDREXW                                          build/core_cm3.o
+__RBIT                                            build/core_cm3.o
+__REV                                             build/core_cm3.o
+__REV16                                           build/core_cm3.o
+__REVSH                                           build/core_cm3.o
+__STREXB                                          build/core_cm3.o
+__STREXH                                          build/core_cm3.o
+__STREXW                                          build/core_cm3.o
+__get_BASEPRI                                     build/core_cm3.o
+__get_CONTROL                                     build/core_cm3.o
+__get_FAULTMASK                                   build/core_cm3.o
+__get_MSP                                         build/core_cm3.o
+__get_PRIMASK                                     build/core_cm3.o
+__get_PSP                                         build/core_cm3.o
+__set_BASEPRI                                     build/core_cm3.o
+__set_CONTROL                                     build/core_cm3.o
+__set_FAULTMASK                                   build/core_cm3.o
+__set_MSP                                         build/core_cm3.o
+__set_PRIMASK                                     build/core_cm3.o
+__set_PSP                                         build/core_cm3.o
+_ebss                                             build/crt.o
+_edata                                            build/crt.o
+_estack                                           build/vectors_stm32f10x_md.o
+_etext                                            build/crt.o
+_sbss                                             build/crt.o
+_sdata                                            build/crt.o
+_stext                                            build/crt.o
+alphameric                                        build/mini_morse.o
+character_to_code                                 build/mini_morse.o
+delay_init                                        build/delay.o
+                                                  build/main_si446x.o
+delay_ms                                          build/delay.o
+                                                  build/main_si446x.o
+                                                  build/radio.o
+gVectors                                          build/vectors_stm32f10x_md.o
+get_str                                           build/util.o
+gfsk_rx                                           build/main_si446x.o
+led_init                                          build/util.o
+                                                  build/main_si446x.o
+main                                              build/main_si446x.o
+                                                  build/crt.o
+mini_morse_delay                                  build/main_si446x.o
+                                                  build/mini_morse.o
+mini_morse_encode_char                            build/mini_morse.o
+mini_morse_start_tx                               build/main_si446x.o
+                                                  build/mini_morse.o
+mini_morse_stop_tx                                build/main_si446x.o
+                                                  build/mini_morse.o
+mini_morse_tx                                     build/mini_morse.o
+print_state                                       build/radio.o
+punctuation                                       build/mini_morse.o
+radio_clear_interrupt_status                      build/radio.o
+radio_configure_packet                            build/radio.o
+radio_get_id                                      build/radio.o
+radio_get_interrupt_status                        build/radio.o
+radio_get_state                                   build/radio.o
+radio_init                                        build/radio.o
+                                                  build/main_si446x.o
+radio_init_morse                                  build/radio.o
+radio_msg                                         build/main_si446x.o
+radio_reset                                       build/radio.o
+radio_set_power                                   build/radio.o
+radio_set_state                                   build/radio.o
+                                                  build/main_si446x.o
+radio_sleep                                       build/radio.o
+radio_start_rx                                    build/radio.o
+radio_start_tx                                    build/radio.o
+radio_tx                                          build/radio.o
+receive_data                                      build/main_si446x.o
+set_properties                                    build/radio.o
+                                                  build/main_si446x.o
+si446x_ctrl_get_response                          build/si446x_ctrl.o
+                                                  build/radio.o
+si446x_ctrl_send_cmd                              build/si446x_ctrl.o
+                                                  build/radio.o
+si446x_ctrl_send_cmd_stream                       build/si446x_ctrl.o
+                                                  build/main_si446x.o
+                                                  build/radio.o
+si446x_ctrl_send_stream                           build/si446x_ctrl.o
+si446x_ctrl_wait_cts                              build/si446x_ctrl.o
+                                                  build/radio.o
+si446x_hal_init                                   build/si446x_hal.o
+                                                  build/radio.o
+si446x_hal_morse_init                             build/si446x_hal.o
+si446x_hal_sdn_init                               build/si446x_hal.o
+si446x_hal_spi_init                               build/si446x_hal.o
+si446x_hal_spi_read                               build/si446x_hal.o
+                                                  build/si446x_ctrl.o
+si446x_hal_spi_read_byte                          build/si446x_hal.o
+                                                  build/si446x_ctrl.o
+si446x_hal_spi_write                              build/si446x_hal.o
+                                                  build/si446x_ctrl.o
+si446x_hal_spi_write_byte                         build/si446x_hal.o
+                                                  build/si446x_ctrl.o
+usart_init                                        build/usart.o
+                                                  build/main_si446x.o
+usart_tx                                          build/usart.o
+                                                  build/main_si446x.o
+usart_txln                                        build/usart.o
+                                                  build/main_si446x.o
+                                                  build/radio.o

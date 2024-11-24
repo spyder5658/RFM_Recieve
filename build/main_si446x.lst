@@ -1,0 +1,752 @@
+ARM GAS  /tmp/ccyZtGvb.s 			page 1
+
+
+   1              		.cpu cortex-m3
+   2              		.eabi_attribute 20, 1
+   3              		.eabi_attribute 21, 1
+   4              		.eabi_attribute 23, 3
+   5              		.eabi_attribute 24, 1
+   6              		.eabi_attribute 25, 1
+   7              		.eabi_attribute 26, 1
+   8              		.eabi_attribute 30, 1
+   9              		.eabi_attribute 34, 1
+  10              		.eabi_attribute 18, 4
+  11              		.file	"main_si446x.c"
+  12              		.text
+  13              		.section	.text.mini_morse_start_tx,"ax",%progbits
+  14              		.align	1
+  15              		.global	mini_morse_start_tx
+  16              		.arch armv7-m
+  17              		.syntax unified
+  18              		.thumb
+  19              		.thumb_func
+  20              		.fpu softvfp
+  22              	mini_morse_start_tx:
+  23              		@ args = 0, pretend = 0, frame = 0
+  24              		@ frame_needed = 0, uses_anonymous_args = 0
+  25 0000 08B5     		push	{r3, lr}
+  26 0002 0720     		movs	r0, #7
+  27 0004 FFF7FEFF 		bl	radio_set_state
+  28 0008 014B     		ldr	r3, .L3
+  29 000a 0122     		movs	r2, #1
+  30 000c 1A61     		str	r2, [r3, #16]
+  31 000e 08BD     		pop	{r3, pc}
+  32              	.L4:
+  33              		.align	2
+  34              	.L3:
+  35 0010 000C0140 		.word	1073810432
+  37              		.section	.text.mini_morse_stop_tx,"ax",%progbits
+  38              		.align	1
+  39              		.global	mini_morse_stop_tx
+  40              		.syntax unified
+  41              		.thumb
+  42              		.thumb_func
+  43              		.fpu softvfp
+  45              	mini_morse_stop_tx:
+  46              		@ args = 0, pretend = 0, frame = 0
+  47              		@ frame_needed = 0, uses_anonymous_args = 0
+  48 0000 08B5     		push	{r3, lr}
+  49 0002 034B     		ldr	r3, .L7
+  50 0004 0122     		movs	r2, #1
+  51 0006 5A61     		str	r2, [r3, #20]
+  52 0008 0320     		movs	r0, #3
+  53 000a FFF7FEFF 		bl	radio_set_state
+  54 000e 08BD     		pop	{r3, pc}
+  55              	.L8:
+  56              		.align	2
+  57              	.L7:
+  58 0010 000C0140 		.word	1073810432
+  60              		.section	.text.mini_morse_delay,"ax",%progbits
+  61              		.align	1
+ARM GAS  /tmp/ccyZtGvb.s 			page 2
+
+
+  62              		.global	mini_morse_delay
+  63              		.syntax unified
+  64              		.thumb
+  65              		.thumb_func
+  66              		.fpu softvfp
+  68              	mini_morse_delay:
+  69              		@ args = 0, pretend = 0, frame = 0
+  70              		@ frame_needed = 0, uses_anonymous_args = 0
+  71 0000 08B5     		push	{r3, lr}
+  72 0002 FFF7FEFF 		bl	delay_ms
+  73 0006 08BD     		pop	{r3, pc}
+  75              		.section	.text.gfsk_rx,"ax",%progbits
+  76              		.align	1
+  77              		.global	gfsk_rx
+  78              		.syntax unified
+  79              		.thumb
+  80              		.thumb_func
+  81              		.fpu softvfp
+  83              	gfsk_rx:
+  84              		@ args = 0, pretend = 0, frame = 256
+  85              		@ frame_needed = 0, uses_anonymous_args = 0
+  86 0000 2DE9F047 		push	{r4, r5, r6, r7, r8, r9, r10, lr}
+  87 0004 C0B0     		sub	sp, sp, #256
+  88 0006 4B23     		movs	r3, #75
+  89 0008 8DF80C30 		strb	r3, [sp, #12]
+  90 000c 0122     		movs	r2, #1
+  91 000e 03A9     		add	r1, sp, #12
+  92 0010 0020     		movs	r0, #0
+  93 0012 FFF7FEFF 		bl	set_properties
+  94 0016 0326     		movs	r6, #3
+  95 0018 8DF81060 		strb	r6, [sp, #16]
+  96 001c 0122     		movs	r2, #1
+  97 001e 04A9     		add	r1, sp, #16
+  98 0020 4FF48070 		mov	r0, #256
+  99 0024 FFF7FEFF 		bl	set_properties
+ 100 0028 1023     		movs	r3, #16
+ 101 002a 8DF81430 		strb	r3, [sp, #20]
+ 102 002e 0122     		movs	r2, #1
+ 103 0030 05A9     		add	r1, sp, #20
+ 104 0032 40F20110 		movw	r0, #257
+ 105 0036 FFF7FEFF 		bl	set_properties
+ 106 003a 4FF00208 		mov	r8, #2
+ 107 003e 8DF81880 		strb	r8, [sp, #24]
+ 108 0042 0122     		movs	r2, #1
+ 109 0044 06A9     		add	r1, sp, #24
+ 110 0046 4FF48170 		mov	r0, #258
+ 111 004a FFF7FEFF 		bl	set_properties
+ 112 004e 0025     		movs	r5, #0
+ 113 0050 8DF80450 		strb	r5, [sp, #4]
+ 114 0054 8DF80550 		strb	r5, [sp, #5]
+ 115 0058 8DF80650 		strb	r5, [sp, #6]
+ 116 005c 3246     		mov	r2, r6
+ 117 005e 01A9     		add	r1, sp, #4
+ 118 0060 2020     		movs	r0, #32
+ 119 0062 FFF7FEFF 		bl	si446x_ctrl_send_cmd_stream
+ 120 0066 8DF81C60 		strb	r6, [sp, #28]
+ 121 006a 0122     		movs	r2, #1
+ARM GAS  /tmp/ccyZtGvb.s 			page 3
+
+
+ 122 006c 07A9     		add	r1, sp, #28
+ 123 006e 4FF40050 		mov	r0, #8192
+ 124 0072 FFF7FEFF 		bl	set_properties
+ 125 0076 8DF82050 		strb	r5, [sp, #32]
+ 126 007a 0122     		movs	r2, #1
+ 127 007c 08A9     		add	r1, sp, #32
+ 128 007e 42F20100 		movw	r0, #8193
+ 129 0082 FFF7FEFF 		bl	set_properties
+ 130 0086 0827     		movs	r7, #8
+ 131 0088 8DF82470 		strb	r7, [sp, #36]
+ 132 008c 0122     		movs	r2, #1
+ 133 008e 09A9     		add	r1, sp, #36
+ 134 0090 42F25100 		movw	r0, #8273
+ 135 0094 FFF7FEFF 		bl	set_properties
+ 136 0098 3C23     		movs	r3, #60
+ 137 009a 8DF82830 		strb	r3, [sp, #40]
+ 138 009e 0122     		movs	r2, #1
+ 139 00a0 0AA9     		add	r1, sp, #40
+ 140 00a2 4FF48040 		mov	r0, #16384
+ 141 00a6 FFF7FEFF 		bl	set_properties
+ 142 00aa 8DF82C70 		strb	r7, [sp, #44]
+ 143 00ae 0122     		movs	r2, #1
+ 144 00b0 0BA9     		add	r1, sp, #44
+ 145 00b2 44F20100 		movw	r0, #16385
+ 146 00b6 FFF7FEFF 		bl	set_properties
+ 147 00ba 8DF83050 		strb	r5, [sp, #48]
+ 148 00be 0122     		movs	r2, #1
+ 149 00c0 0CA9     		add	r1, sp, #48
+ 150 00c2 44F20200 		movw	r0, #16386
+ 151 00c6 FFF7FEFF 		bl	set_properties
+ 152 00ca 8DF83450 		strb	r5, [sp, #52]
+ 153 00ce 0122     		movs	r2, #1
+ 154 00d0 0DA9     		add	r1, sp, #52
+ 155 00d2 44F20300 		movw	r0, #16387
+ 156 00d6 FFF7FEFF 		bl	set_properties
+ 157 00da 2024     		movs	r4, #32
+ 158 00dc 8DF83840 		strb	r4, [sp, #56]
+ 159 00e0 0122     		movs	r2, #1
+ 160 00e2 0EA9     		add	r1, sp, #56
+ 161 00e4 44F20600 		movw	r0, #16390
+ 162 00e8 FFF7FEFF 		bl	set_properties
+ 163 00ec 4FF0FF09 		mov	r9, #255
+ 164 00f0 8DF83C90 		strb	r9, [sp, #60]
+ 165 00f4 0122     		movs	r2, #1
+ 166 00f6 0FA9     		add	r1, sp, #60
+ 167 00f8 44F20700 		movw	r0, #16391
+ 168 00fc FFF7FEFF 		bl	set_properties
+ 169 0100 8DF84050 		strb	r5, [sp, #64]
+ 170 0104 0122     		movs	r2, #1
+ 171 0106 10A9     		add	r1, sp, #64
+ 172 0108 42F21900 		movw	r0, #8217
+ 173 010c FFF7FEFF 		bl	set_properties
+ 174 0110 8DF84470 		strb	r7, [sp, #68]
+ 175 0114 0122     		movs	r2, #1
+ 176 0116 11A9     		add	r1, sp, #68
+ 177 0118 42F21A00 		movw	r0, #8218
+ 178 011c FFF7FEFF 		bl	set_properties
+ARM GAS  /tmp/ccyZtGvb.s 			page 4
+
+
+ 179 0120 8DF84860 		strb	r6, [sp, #72]
+ 180 0124 0122     		movs	r2, #1
+ 181 0126 12A9     		add	r1, sp, #72
+ 182 0128 42F21B00 		movw	r0, #8219
+ 183 012c FFF7FEFF 		bl	set_properties
+ 184 0130 C023     		movs	r3, #192
+ 185 0132 8DF84C30 		strb	r3, [sp, #76]
+ 186 0136 0122     		movs	r2, #1
+ 187 0138 13A9     		add	r1, sp, #76
+ 188 013a 42F21C00 		movw	r0, #8220
+ 189 013e FFF7FEFF 		bl	set_properties
+ 190 0142 8DF85050 		strb	r5, [sp, #80]
+ 191 0146 0122     		movs	r2, #1
+ 192 0148 14A9     		add	r1, sp, #80
+ 193 014a 42F21D00 		movw	r0, #8221
+ 194 014e FFF7FEFF 		bl	set_properties
+ 195 0152 B023     		movs	r3, #176
+ 196 0154 8DF85430 		strb	r3, [sp, #84]
+ 197 0158 0122     		movs	r2, #1
+ 198 015a 15A9     		add	r1, sp, #84
+ 199 015c 42F21E00 		movw	r0, #8222
+ 200 0160 FFF7FEFF 		bl	set_properties
+ 201 0164 8DF85840 		strb	r4, [sp, #88]
+ 202 0168 0122     		movs	r2, #1
+ 203 016a 16A9     		add	r1, sp, #88
+ 204 016c 42F21F00 		movw	r0, #8223
+ 205 0170 FFF7FEFF 		bl	set_properties
+ 206 0174 8DF85C50 		strb	r5, [sp, #92]
+ 207 0178 0122     		movs	r2, #1
+ 208 017a 17A9     		add	r1, sp, #92
+ 209 017c 42F22200 		movw	r0, #8226
+ 210 0180 FFF7FEFF 		bl	set_properties
+ 211 0184 5E23     		movs	r3, #94
+ 212 0186 8DF86030 		strb	r3, [sp, #96]
+ 213 018a 0122     		movs	r2, #1
+ 214 018c 18A9     		add	r1, sp, #96
+ 215 018e 42F22300 		movw	r0, #8227
+ 216 0192 FFF7FEFF 		bl	set_properties
+ 217 0196 0523     		movs	r3, #5
+ 218 0198 8DF86430 		strb	r3, [sp, #100]
+ 219 019c 0122     		movs	r2, #1
+ 220 019e 19A9     		add	r1, sp, #100
+ 221 01a0 42F22400 		movw	r0, #8228
+ 222 01a4 FFF7FEFF 		bl	set_properties
+ 223 01a8 4FF0760A 		mov	r10, #118
+ 224 01ac 8DF868A0 		strb	r10, [sp, #104]
+ 225 01b0 0122     		movs	r2, #1
+ 226 01b2 1AA9     		add	r1, sp, #104
+ 227 01b4 42F22500 		movw	r0, #8229
+ 228 01b8 FFF7FEFF 		bl	set_properties
+ 229 01bc 1A23     		movs	r3, #26
+ 230 01be 8DF86C30 		strb	r3, [sp, #108]
+ 231 01c2 0122     		movs	r2, #1
+ 232 01c4 1BA9     		add	r1, sp, #108
+ 233 01c6 42F22600 		movw	r0, #8230
+ 234 01ca FFF7FEFF 		bl	set_properties
+ 235 01ce 0723     		movs	r3, #7
+ARM GAS  /tmp/ccyZtGvb.s 			page 5
+
+
+ 236 01d0 8DF87030 		strb	r3, [sp, #112]
+ 237 01d4 0122     		movs	r2, #1
+ 238 01d6 1CA9     		add	r1, sp, #112
+ 239 01d8 42F22700 		movw	r0, #8231
+ 240 01dc FFF7FEFF 		bl	set_properties
+ 241 01e0 8DF87490 		strb	r9, [sp, #116]
+ 242 01e4 0122     		movs	r2, #1
+ 243 01e6 1DA9     		add	r1, sp, #116
+ 244 01e8 42F22800 		movw	r0, #8232
+ 245 01ec FFF7FEFF 		bl	set_properties
+ 246 01f0 8DF87880 		strb	r8, [sp, #120]
+ 247 01f4 0122     		movs	r2, #1
+ 248 01f6 1EA9     		add	r1, sp, #120
+ 249 01f8 42F22900 		movw	r0, #8233
+ 250 01fc FFF7FEFF 		bl	set_properties
+ 251 0200 8DF87C50 		strb	r5, [sp, #124]
+ 252 0204 0122     		movs	r2, #1
+ 253 0206 1FA9     		add	r1, sp, #124
+ 254 0208 42F22A00 		movw	r0, #8234
+ 255 020c FFF7FEFF 		bl	set_properties
+ 256 0210 8DF88050 		strb	r5, [sp, #128]
+ 257 0214 0122     		movs	r2, #1
+ 258 0216 20A9     		add	r1, sp, #128
+ 259 0218 42F22B00 		movw	r0, #8235
+ 260 021c FFF7FEFF 		bl	set_properties
+ 261 0220 8DF88450 		strb	r5, [sp, #132]
+ 262 0224 0122     		movs	r2, #1
+ 263 0226 21A9     		add	r1, sp, #132
+ 264 0228 42F22C00 		movw	r0, #8236
+ 265 022c FFF7FEFF 		bl	set_properties
+ 266 0230 1223     		movs	r3, #18
+ 267 0232 8DF88830 		strb	r3, [sp, #136]
+ 268 0236 0122     		movs	r2, #1
+ 269 0238 22A9     		add	r1, sp, #136
+ 270 023a 42F22D00 		movw	r0, #8237
+ 271 023e FFF7FEFF 		bl	set_properties
+ 272 0242 8023     		movs	r3, #128
+ 273 0244 8DF88C30 		strb	r3, [sp, #140]
+ 274 0248 0122     		movs	r2, #1
+ 275 024a 23A9     		add	r1, sp, #140
+ 276 024c 42F22E00 		movw	r0, #8238
+ 277 0250 FFF7FEFF 		bl	set_properties
+ 278 0254 1623     		movs	r3, #22
+ 279 0256 8DF89030 		strb	r3, [sp, #144]
+ 280 025a 0122     		movs	r2, #1
+ 281 025c 24A9     		add	r1, sp, #144
+ 282 025e 42F22F00 		movw	r0, #8239
+ 283 0262 FFF7FEFF 		bl	set_properties
+ 284 0266 0124     		movs	r4, #1
+ 285 0268 8DF89440 		strb	r4, [sp, #148]
+ 286 026c 2246     		mov	r2, r4
+ 287 026e 25A9     		add	r1, sp, #148
+ 288 0270 42F23000 		movw	r0, #8240
+ 289 0274 FFF7FEFF 		bl	set_properties
+ 290 0278 8DF898A0 		strb	r10, [sp, #152]
+ 291 027c 2246     		mov	r2, r4
+ 292 027e 26A9     		add	r1, sp, #152
+ARM GAS  /tmp/ccyZtGvb.s 			page 6
+
+
+ 293 0280 42F23100 		movw	r0, #8241
+ 294 0284 FFF7FEFF 		bl	set_properties
+ 295 0288 E023     		movs	r3, #224
+ 296 028a 8DF89C30 		strb	r3, [sp, #156]
+ 297 028e 2246     		mov	r2, r4
+ 298 0290 27A9     		add	r1, sp, #156
+ 299 0292 42F23200 		movw	r0, #8242
+ 300 0296 FFF7FEFF 		bl	set_properties
+ 301 029a E223     		movs	r3, #226
+ 302 029c 8DF8A030 		strb	r3, [sp, #160]
+ 303 02a0 2246     		mov	r2, r4
+ 304 02a2 28A9     		add	r1, sp, #160
+ 305 02a4 42F23500 		movw	r0, #8245
+ 306 02a8 FFF7FEFF 		bl	set_properties
+ 307 02ac 1123     		movs	r3, #17
+ 308 02ae 8DF8A430 		strb	r3, [sp, #164]
+ 309 02b2 2246     		mov	r2, r4
+ 310 02b4 29A9     		add	r1, sp, #164
+ 311 02b6 42F23800 		movw	r0, #8248
+ 312 02ba FFF7FEFF 		bl	set_properties
+ 313 02be 4FF0150A 		mov	r10, #21
+ 314 02c2 8DF8A8A0 		strb	r10, [sp, #168]
+ 315 02c6 2246     		mov	r2, r4
+ 316 02c8 2AA9     		add	r1, sp, #168
+ 317 02ca 42F23900 		movw	r0, #8249
+ 318 02ce FFF7FEFF 		bl	set_properties
+ 319 02d2 8DF8ACA0 		strb	r10, [sp, #172]
+ 320 02d6 2246     		mov	r2, r4
+ 321 02d8 2BA9     		add	r1, sp, #172
+ 322 02da 42F23A00 		movw	r0, #8250
+ 323 02de FFF7FEFF 		bl	set_properties
+ 324 02e2 A423     		movs	r3, #164
+ 325 02e4 8DF8B030 		strb	r3, [sp, #176]
+ 326 02e8 2246     		mov	r2, r4
+ 327 02ea 2CA9     		add	r1, sp, #176
+ 328 02ec 42F24200 		movw	r0, #8258
+ 329 02f0 FFF7FEFF 		bl	set_properties
+ 330 02f4 8DF8B460 		strb	r6, [sp, #180]
+ 331 02f8 2246     		mov	r2, r4
+ 332 02fa 2DA9     		add	r1, sp, #180
+ 333 02fc 42F24300 		movw	r0, #8259
+ 334 0300 FFF7FEFF 		bl	set_properties
+ 335 0304 D623     		movs	r3, #214
+ 336 0306 8DF8B830 		strb	r3, [sp, #184]
+ 337 030a 2246     		mov	r2, r4
+ 338 030c 2EA9     		add	r1, sp, #184
+ 339 030e 42F24400 		movw	r0, #8260
+ 340 0312 FFF7FEFF 		bl	set_properties
+ 341 0316 8DF8BC60 		strb	r6, [sp, #188]
+ 342 031a 2246     		mov	r2, r4
+ 343 031c 2FA9     		add	r1, sp, #188
+ 344 031e 42F24500 		movw	r0, #8261
+ 345 0322 FFF7FEFF 		bl	set_properties
+ 346 0326 8DF8C050 		strb	r5, [sp, #192]
+ 347 032a 2246     		mov	r2, r4
+ 348 032c 30A9     		add	r1, sp, #192
+ 349 032e 42F24600 		movw	r0, #8262
+ARM GAS  /tmp/ccyZtGvb.s 			page 7
+
+
+ 350 0332 FFF7FEFF 		bl	set_properties
+ 351 0336 DE23     		movs	r3, #222
+ 352 0338 8DF8C430 		strb	r3, [sp, #196]
+ 353 033c 2246     		mov	r2, r4
+ 354 033e 31A9     		add	r1, sp, #196
+ 355 0340 42F24700 		movw	r0, #8263
+ 356 0344 FFF7FEFF 		bl	set_properties
+ 357 0348 4023     		movs	r3, #64
+ 358 034a 8DF8C830 		strb	r3, [sp, #200]
+ 359 034e 2246     		mov	r2, r4
+ 360 0350 32A9     		add	r1, sp, #200
+ 361 0352 42F24E00 		movw	r0, #8270
+ 362 0356 FFF7FEFF 		bl	set_properties
+ 363 035a 8DF8CC50 		strb	r5, [sp, #204]
+ 364 035e 2246     		mov	r2, r4
+ 365 0360 33A9     		add	r1, sp, #204
+ 366 0362 42F24C00 		movw	r0, #8268
+ 367 0366 FFF7FEFF 		bl	set_properties
+ 368 036a 8DF8D090 		strb	r9, [sp, #208]
+ 369 036e 2246     		mov	r2, r4
+ 370 0370 34A9     		add	r1, sp, #208
+ 371 0372 42F24A00 		movw	r0, #8266
+ 372 0376 FFF7FEFF 		bl	set_properties
+ 373 037a 0C26     		movs	r6, #12
+ 374 037c 8DF8D460 		strb	r6, [sp, #212]
+ 375 0380 2246     		mov	r2, r4
+ 376 0382 35A9     		add	r1, sp, #212
+ 377 0384 42F24B00 		movw	r0, #8267
+ 378 0388 FFF7FEFF 		bl	set_properties
+ 379 038c 2246     		mov	r2, r4
+ 380 038e 2946     		mov	r1, r5
+ 381 0390 42F20C10 		movw	r0, #8460
+ 382 0394 FFF7FEFF 		bl	set_properties
+ 383 0398 2246     		mov	r2, r4
+ 384 039a 3146     		mov	r1, r6
+ 385 039c 42F20610 		movw	r0, #8454
+ 386 03a0 FFF7FEFF 		bl	set_properties
+ 387 03a4 8DF8D880 		strb	r8, [sp, #216]
+ 388 03a8 2246     		mov	r2, r4
+ 389 03aa 36A9     		add	r1, sp, #216
+ 390 03ac 41F20400 		movw	r0, #4100
+ 391 03b0 FFF7FEFF 		bl	set_properties
+ 392 03b4 1423     		movs	r3, #20
+ 393 03b6 8DF8DC30 		strb	r3, [sp, #220]
+ 394 03ba 2246     		mov	r2, r4
+ 395 03bc 37A9     		add	r1, sp, #220
+ 396 03be 41F20100 		movw	r0, #4097
+ 397 03c2 FFF7FEFF 		bl	set_properties
+ 398 03c6 8DF8E070 		strb	r7, [sp, #224]
+ 399 03ca 2246     		mov	r2, r4
+ 400 03cc 38A9     		add	r1, sp, #224
+ 401 03ce 41F20300 		movw	r0, #4099
+ 402 03d2 FFF7FEFF 		bl	set_properties
+ 403 03d6 8DF8E440 		strb	r4, [sp, #228]
+ 404 03da 2246     		mov	r2, r4
+ 405 03dc 39A9     		add	r1, sp, #228
+ 406 03de 4FF48850 		mov	r0, #4352
+ARM GAS  /tmp/ccyZtGvb.s 			page 8
+
+
+ 407 03e2 FFF7FEFF 		bl	set_properties
+ 408 03e6 B423     		movs	r3, #180
+ 409 03e8 8DF8E830 		strb	r3, [sp, #232]
+ 410 03ec 2246     		mov	r2, r4
+ 411 03ee 3AA9     		add	r1, sp, #232
+ 412 03f0 41F20110 		movw	r0, #4353
+ 413 03f4 FFF7FEFF 		bl	set_properties
+ 414 03f8 2B23     		movs	r3, #43
+ 415 03fa 8DF8EC30 		strb	r3, [sp, #236]
+ 416 03fe 2246     		mov	r2, r4
+ 417 0400 3BA9     		add	r1, sp, #236
+ 418 0402 41F20210 		movw	r0, #4354
+ 419 0406 FFF7FEFF 		bl	set_properties
+ 420 040a 8DF8F050 		strb	r5, [sp, #240]
+ 421 040e 2246     		mov	r2, r4
+ 422 0410 3CA9     		add	r1, sp, #240
+ 423 0412 4FF49050 		mov	r0, #4608
+ 424 0416 FFF7FEFF 		bl	set_properties
+ 425 041a 8DF8F450 		strb	r5, [sp, #244]
+ 426 041e 2246     		mov	r2, r4
+ 427 0420 3DA9     		add	r1, sp, #244
+ 428 0422 41F20620 		movw	r0, #4614
+ 429 0426 FFF7FEFF 		bl	set_properties
+ 430 042a 8DF8F850 		strb	r5, [sp, #248]
+ 431 042e 2246     		mov	r2, r4
+ 432 0430 3EA9     		add	r1, sp, #248
+ 433 0432 41F20D20 		movw	r0, #4621
+ 434 0436 FFF7FEFF 		bl	set_properties
+ 435 043a 0A23     		movs	r3, #10
+ 436 043c 8DF8FC30 		strb	r3, [sp, #252]
+ 437 0440 2246     		mov	r2, r4
+ 438 0442 3FA9     		add	r1, sp, #252
+ 439 0444 41F20E20 		movw	r0, #4622
+ 440 0448 FFF7FEFF 		bl	set_properties
+ 441 044c 8DF80450 		strb	r5, [sp, #4]
+ 442 0450 8DF80550 		strb	r5, [sp, #5]
+ 443 0454 8DF80650 		strb	r5, [sp, #6]
+ 444 0458 8DF80750 		strb	r5, [sp, #7]
+ 445 045c 8DF80850 		strb	r5, [sp, #8]
+ 446 0460 3023     		movs	r3, #48
+ 447 0462 8DF80930 		strb	r3, [sp, #9]
+ 448 0466 8DF80A50 		strb	r5, [sp, #10]
+ 449 046a 0422     		movs	r2, #4
+ 450 046c 0DEB0201 		add	r1, sp, r2
+ 451 0470 3220     		movs	r0, #50
+ 452 0472 FFF7FEFF 		bl	si446x_ctrl_send_cmd_stream
+ 453 0476 40B0     		add	sp, sp, #256
+ 454              		@ sp needed
+ 455 0478 BDE8F087 		pop	{r4, r5, r6, r7, r8, r9, r10, pc}
+ 457              		.section	.rodata.receive_data.str1.4,"aMS",%progbits,1
+ 458              		.align	2
+ 459              	.LC0:
+ 460 0000 52656365 		.ascii	"Received Data: \000"
+ 460      69766564 
+ 460      20446174 
+ 460      613A2000 
+ 461              		.align	2
+ARM GAS  /tmp/ccyZtGvb.s 			page 9
+
+
+ 462              	.LC1:
+ 463 0010 00       		.ascii	"\000"
+ 464              		.section	.text.receive_data,"ax",%progbits
+ 465              		.align	1
+ 466              		.global	receive_data
+ 467              		.syntax unified
+ 468              		.thumb
+ 469              		.thumb_func
+ 470              		.fpu softvfp
+ 472              	receive_data:
+ 473              		@ args = 0, pretend = 0, frame = 80
+ 474              		@ frame_needed = 0, uses_anonymous_args = 0
+ 475 0000 10B5     		push	{r4, lr}
+ 476 0002 94B0     		sub	sp, sp, #80
+ 477 0004 0024     		movs	r4, #0
+ 478 0006 8DF84440 		strb	r4, [sp, #68]
+ 479 000a 8DF84540 		strb	r4, [sp, #69]
+ 480 000e 8DF84640 		strb	r4, [sp, #70]
+ 481 0012 0322     		movs	r2, #3
+ 482 0014 11A9     		add	r1, sp, #68
+ 483 0016 2020     		movs	r0, #32
+ 484 0018 FFF7FEFF 		bl	si446x_ctrl_send_cmd_stream
+ 485 001c 8DF84440 		strb	r4, [sp, #68]
+ 486 0020 3023     		movs	r3, #48
+ 487 0022 8DF84530 		strb	r3, [sp, #69]
+ 488 0026 8DF84640 		strb	r4, [sp, #70]
+ 489 002a 8DF84740 		strb	r4, [sp, #71]
+ 490 002e 0422     		movs	r2, #4
+ 491 0030 11A9     		add	r1, sp, #68
+ 492 0032 3220     		movs	r0, #50
+ 493 0034 FFF7FEFF 		bl	si446x_ctrl_send_cmd_stream
+ 494 0038 1EE0     		b	.L18
+ 495              	.L16:
+ 496 003a 04F15003 		add	r3, r4, #80
+ 497 003e 6B44     		add	r3, sp, r3
+ 498 0040 13F84C0C 		ldrb	r0, [r3, #-76]	@ zero_extendqisi2
+ 499 0044 FFF7FEFF 		bl	usart_tx
+ 500 0048 0134     		adds	r4, r4, #1
+ 501              	.L15:
+ 502 004a 3F2C     		cmp	r4, #63
+ 503 004c F5D9     		bls	.L16
+ 504 004e 1948     		ldr	r0, .L21
+ 505 0050 FFF7FEFF 		bl	usart_txln
+ 506 0054 0222     		movs	r2, #2
+ 507 0056 11A9     		add	r1, sp, #68
+ 508 0058 1520     		movs	r0, #21
+ 509 005a FFF7FEFF 		bl	si446x_ctrl_send_cmd_stream
+ 510 005e 9DF84530 		ldrb	r3, [sp, #69]	@ zero_extendqisi2
+ 511 0062 13F0010F 		tst	r3, #1
+ 512 0066 1BD1     		bne	.L20
+ 513              	.L17:
+ 514 0068 0422     		movs	r2, #4
+ 515 006a 11A9     		add	r1, sp, #68
+ 516 006c 3220     		movs	r0, #50
+ 517 006e FFF7FEFF 		bl	si446x_ctrl_send_cmd_stream
+ 518              	.L14:
+ 519 0072 6420     		movs	r0, #100
+ARM GAS  /tmp/ccyZtGvb.s 			page 10
+
+
+ 520 0074 FFF7FEFF 		bl	delay_ms
+ 521              	.L18:
+ 522 0078 0322     		movs	r2, #3
+ 523 007a 11A9     		add	r1, sp, #68
+ 524 007c 2020     		movs	r0, #32
+ 525 007e FFF7FEFF 		bl	si446x_ctrl_send_cmd_stream
+ 526 0082 9DF84630 		ldrb	r3, [sp, #70]	@ zero_extendqisi2
+ 527 0086 13F0100F 		tst	r3, #16
+ 528 008a F2D0     		beq	.L14
+ 529 008c 4022     		movs	r2, #64
+ 530 008e 01A9     		add	r1, sp, #4
+ 531 0090 7720     		movs	r0, #119
+ 532 0092 FFF7FEFF 		bl	si446x_ctrl_send_cmd_stream
+ 533 0096 0848     		ldr	r0, .L21+4
+ 534 0098 FFF7FEFF 		bl	usart_tx
+ 535 009c 0024     		movs	r4, #0
+ 536 009e D4E7     		b	.L15
+ 537              	.L20:
+ 538 00a0 0223     		movs	r3, #2
+ 539 00a2 8DF84C30 		strb	r3, [sp, #76]
+ 540 00a6 0122     		movs	r2, #1
+ 541 00a8 13A9     		add	r1, sp, #76
+ 542 00aa 1520     		movs	r0, #21
+ 543 00ac FFF7FEFF 		bl	si446x_ctrl_send_cmd_stream
+ 544 00b0 DAE7     		b	.L17
+ 545              	.L22:
+ 546 00b2 00BF     		.align	2
+ 547              	.L21:
+ 548 00b4 10000000 		.word	.LC1
+ 549 00b8 00000000 		.word	.LC0
+ 551              		.section	.rodata.RX_Interrupt_Handler.str1.4,"aMS",%progbits,1
+ 552              		.align	2
+ 553              	.LC2:
+ 554 0000 30783031 		.ascii	"0x01\000"
+ 554      00
+ 555              		.section	.text.RX_Interrupt_Handler,"ax",%progbits
+ 556              		.align	1
+ 557              		.global	RX_Interrupt_Handler
+ 558              		.syntax unified
+ 559              		.thumb
+ 560              		.thumb_func
+ 561              		.fpu softvfp
+ 563              	RX_Interrupt_Handler:
+ 564              		@ args = 0, pretend = 0, frame = 72
+ 565              		@ frame_needed = 0, uses_anonymous_args = 0
+ 566 0000 10B5     		push	{r4, lr}
+ 567 0002 92B0     		sub	sp, sp, #72
+ 568 0004 0322     		movs	r2, #3
+ 569 0006 10A9     		add	r1, sp, #64
+ 570 0008 2020     		movs	r0, #32
+ 571 000a FFF7FEFF 		bl	si446x_ctrl_send_cmd_stream
+ 572 000e 9DF84230 		ldrb	r3, [sp, #66]	@ zero_extendqisi2
+ 573 0012 13F0100F 		tst	r3, #16
+ 574 0016 06D1     		bne	.L29
+ 575              	.L24:
+ 576 0018 0422     		movs	r2, #4
+ 577 001a 10A9     		add	r1, sp, #64
+ARM GAS  /tmp/ccyZtGvb.s 			page 11
+
+
+ 578 001c 3220     		movs	r0, #50
+ 579 001e FFF7FEFF 		bl	si446x_ctrl_send_cmd_stream
+ 580 0022 12B0     		add	sp, sp, #72
+ 581              		@ sp needed
+ 582 0024 10BD     		pop	{r4, pc}
+ 583              	.L29:
+ 584 0026 4022     		movs	r2, #64
+ 585 0028 6946     		mov	r1, sp
+ 586 002a 7720     		movs	r0, #119
+ 587 002c FFF7FEFF 		bl	si446x_ctrl_send_cmd_stream
+ 588 0030 0D48     		ldr	r0, .L31
+ 589 0032 FFF7FEFF 		bl	usart_tx
+ 590 0036 0024     		movs	r4, #0
+ 591 0038 00E0     		b	.L25
+ 592              	.L26:
+ 593 003a 0134     		adds	r4, r4, #1
+ 594              	.L25:
+ 595 003c 3F2C     		cmp	r4, #63
+ 596 003e 0ED8     		bhi	.L30
+ 597 0040 04F14803 		add	r3, r4, #72
+ 598 0044 6B44     		add	r3, sp, r3
+ 599 0046 13F8480C 		ldrb	r0, [r3, #-72]	@ zero_extendqisi2
+ 600 004a FFF7FEFF 		bl	usart_tx
+ 601 004e 9DF80130 		ldrb	r3, [sp, #1]	@ zero_extendqisi2
+ 602 0052 012B     		cmp	r3, #1
+ 603 0054 F1D1     		bne	.L26
+ 604 0056 0548     		ldr	r0, .L31+4
+ 605 0058 FFF7FEFF 		bl	usart_tx
+ 606 005c EDE7     		b	.L26
+ 607              	.L30:
+ 608 005e 0448     		ldr	r0, .L31+8
+ 609 0060 FFF7FEFF 		bl	usart_txln
+ 610 0064 D8E7     		b	.L24
+ 611              	.L32:
+ 612 0066 00BF     		.align	2
+ 613              	.L31:
+ 614 0068 00000000 		.word	.LC0
+ 615 006c 00000000 		.word	.LC2
+ 616 0070 10000000 		.word	.LC1
+ 618              		.section	.rodata.main.str1.4,"aMS",%progbits,1
+ 619              		.align	2
+ 620              	.LC3:
+ 621 0000 4E616D61 		.ascii	"Namaste!\000"
+ 621      73746521 
+ 621      00
+ 622 0009 000000   		.align	2
+ 623              	.LC4:
+ 624 000c 52616469 		.ascii	"Radio error\000"
+ 624      6F206572 
+ 624      726F7200 
+ 625              		.align	2
+ 626              	.LC5:
+ 627 0018 52616469 		.ascii	"Radio successfull..\000"
+ 627      6F207375 
+ 627      63636573 
+ 627      7366756C 
+ 627      6C2E2E00 
+ARM GAS  /tmp/ccyZtGvb.s 			page 12
+
+
+ 628              		.section	.text.main,"ax",%progbits
+ 629              		.align	1
+ 630              		.global	main
+ 631              		.syntax unified
+ 632              		.thumb
+ 633              		.thumb_func
+ 634              		.fpu softvfp
+ 636              	main:
+ 637              		@ Volatile: function does not return.
+ 638              		@ args = 0, pretend = 0, frame = 0
+ 639              		@ frame_needed = 0, uses_anonymous_args = 0
+ 640 0000 08B5     		push	{r3, lr}
+ 641 0002 FFF7FEFF 		bl	led_init
+ 642 0006 FFF7FEFF 		bl	delay_init
+ 643 000a 4FF4E130 		mov	r0, #115200
+ 644 000e FFF7FEFF 		bl	usart_init
+ 645 0012 0B48     		ldr	r0, .L38
+ 646 0014 FFF7FEFF 		bl	usart_txln
+ 647 0018 06E0     		b	.L34
+ 648              	.L35:
+ 649 001a 0A48     		ldr	r0, .L38+4
+ 650 001c FFF7FEFF 		bl	usart_txln
+ 651 0020 4FF47A70 		mov	r0, #1000
+ 652 0024 FFF7FEFF 		bl	delay_ms
+ 653              	.L34:
+ 654 0028 FFF7FEFF 		bl	radio_init
+ 655 002c 0028     		cmp	r0, #0
+ 656 002e F4D0     		beq	.L35
+ 657 0030 0548     		ldr	r0, .L38+8
+ 658 0032 FFF7FEFF 		bl	usart_txln
+ 659 0036 FFF7FEFF 		bl	gfsk_rx
+ 660 003a FFF7FEFF 		bl	RX_Interrupt_Handler
+ 661              	.L36:
+ 662 003e FEE7     		b	.L36
+ 663              	.L39:
+ 664              		.align	2
+ 665              	.L38:
+ 666 0040 00000000 		.word	.LC3
+ 667 0044 0C000000 		.word	.LC4
+ 668 0048 18000000 		.word	.LC5
+ 670              		.global	radio_msg
+ 671              		.section	.rodata.radio_msg,"a"
+ 672              		.align	2
+ 675              	radio_msg:
+ 676 0000 4E616D61 		.ascii	"Namaste!\000"
+ 676      73746521 
+ 676      00
+ 677              		.ident	"GCC: (15:10.3-2021.07-4) 10.3.1 20210621 (release)"
+ARM GAS  /tmp/ccyZtGvb.s 			page 13
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 main_si446x.c
+     /tmp/ccyZtGvb.s:14     .text.mini_morse_start_tx:0000000000000000 $t
+     /tmp/ccyZtGvb.s:22     .text.mini_morse_start_tx:0000000000000000 mini_morse_start_tx
+     /tmp/ccyZtGvb.s:35     .text.mini_morse_start_tx:0000000000000010 $d
+     /tmp/ccyZtGvb.s:38     .text.mini_morse_stop_tx:0000000000000000 $t
+     /tmp/ccyZtGvb.s:45     .text.mini_morse_stop_tx:0000000000000000 mini_morse_stop_tx
+     /tmp/ccyZtGvb.s:58     .text.mini_morse_stop_tx:0000000000000010 $d
+     /tmp/ccyZtGvb.s:61     .text.mini_morse_delay:0000000000000000 $t
+     /tmp/ccyZtGvb.s:68     .text.mini_morse_delay:0000000000000000 mini_morse_delay
+     /tmp/ccyZtGvb.s:76     .text.gfsk_rx:0000000000000000 $t
+     /tmp/ccyZtGvb.s:83     .text.gfsk_rx:0000000000000000 gfsk_rx
+     /tmp/ccyZtGvb.s:458    .rodata.receive_data.str1.4:0000000000000000 $d
+     /tmp/ccyZtGvb.s:465    .text.receive_data:0000000000000000 $t
+     /tmp/ccyZtGvb.s:472    .text.receive_data:0000000000000000 receive_data
+     /tmp/ccyZtGvb.s:548    .text.receive_data:00000000000000b4 $d
+     /tmp/ccyZtGvb.s:552    .rodata.RX_Interrupt_Handler.str1.4:0000000000000000 $d
+     /tmp/ccyZtGvb.s:556    .text.RX_Interrupt_Handler:0000000000000000 $t
+     /tmp/ccyZtGvb.s:563    .text.RX_Interrupt_Handler:0000000000000000 RX_Interrupt_Handler
+     /tmp/ccyZtGvb.s:614    .text.RX_Interrupt_Handler:0000000000000068 $d
+     /tmp/ccyZtGvb.s:619    .rodata.main.str1.4:0000000000000000 $d
+     /tmp/ccyZtGvb.s:629    .text.main:0000000000000000 $t
+     /tmp/ccyZtGvb.s:636    .text.main:0000000000000000 main
+     /tmp/ccyZtGvb.s:666    .text.main:0000000000000040 $d
+     /tmp/ccyZtGvb.s:675    .rodata.radio_msg:0000000000000000 radio_msg
+     /tmp/ccyZtGvb.s:672    .rodata.radio_msg:0000000000000000 $d
+
+UNDEFINED SYMBOLS
+radio_set_state
+delay_ms
+set_properties
+si446x_ctrl_send_cmd_stream
+usart_tx
+usart_txln
+led_init
+delay_init
+usart_init
+radio_init

@@ -1,0 +1,495 @@
+ARM GAS  /tmp/ccm0XvEJ.s 			page 1
+
+
+   1              		.cpu cortex-m3
+   2              		.eabi_attribute 20, 1
+   3              		.eabi_attribute 21, 1
+   4              		.eabi_attribute 23, 3
+   5              		.eabi_attribute 24, 1
+   6              		.eabi_attribute 25, 1
+   7              		.eabi_attribute 26, 1
+   8              		.eabi_attribute 30, 1
+   9              		.eabi_attribute 34, 1
+  10              		.eabi_attribute 18, 4
+  11              		.file	"core_cm3.c"
+  12              		.text
+  13              		.section	.text.__get_PSP,"ax",%progbits
+  14              		.align	1
+  15              		.global	__get_PSP
+  16              		.arch armv7-m
+  17              		.syntax unified
+  18              		.thumb
+  19              		.thumb_func
+  20              		.fpu softvfp
+  22              	__get_PSP:
+  23              		@ Naked Function: prologue and epilogue provided by programmer.
+  24              		@ args = 0, pretend = 0, frame = 0
+  25              		@ frame_needed = 0, uses_anonymous_args = 0
+  26              		.syntax unified
+  27              	@ 447 "core/cmsis/core_support/core_cm3.c" 1
+  28 0000 EFF30980 		MRS r0, psp
+  29 0004 0046     		MOV r0, r0 
+  30 0006 7047     		BX  lr     
+  31              		
+  32              	@ 0 "" 2
+  33              		.thumb
+  34              		.syntax unified
+  36              		.section	.text.__set_PSP,"ax",%progbits
+  37              		.align	1
+  38              		.global	__set_PSP
+  39              		.syntax unified
+  40              		.thumb
+  41              		.thumb_func
+  42              		.fpu softvfp
+  44              	__set_PSP:
+  45              		@ Naked Function: prologue and epilogue provided by programmer.
+  46              		@ args = 0, pretend = 0, frame = 0
+  47              		@ frame_needed = 0, uses_anonymous_args = 0
+  48              		.syntax unified
+  49              	@ 464 "core/cmsis/core_support/core_cm3.c" 1
+  50 0000 80F30988 		MSR psp, r0
+  51 0004 7047     		BX  lr     
+  52              		
+  53              	@ 0 "" 2
+  54              		.thumb
+  55              		.syntax unified
+  57              		.section	.text.__get_MSP,"ax",%progbits
+  58              		.align	1
+  59              		.global	__get_MSP
+  60              		.syntax unified
+  61              		.thumb
+ARM GAS  /tmp/ccm0XvEJ.s 			page 2
+
+
+  62              		.thumb_func
+  63              		.fpu softvfp
+  65              	__get_MSP:
+  66              		@ Naked Function: prologue and epilogue provided by programmer.
+  67              		@ args = 0, pretend = 0, frame = 0
+  68              		@ frame_needed = 0, uses_anonymous_args = 0
+  69              		.syntax unified
+  70              	@ 481 "core/cmsis/core_support/core_cm3.c" 1
+  71 0000 EFF30880 		MRS r0, msp
+  72 0004 0046     		MOV r0, r0 
+  73 0006 7047     		BX  lr     
+  74              		
+  75              	@ 0 "" 2
+  76              		.thumb
+  77              		.syntax unified
+  79              		.section	.text.__set_MSP,"ax",%progbits
+  80              		.align	1
+  81              		.global	__set_MSP
+  82              		.syntax unified
+  83              		.thumb
+  84              		.thumb_func
+  85              		.fpu softvfp
+  87              	__set_MSP:
+  88              		@ Naked Function: prologue and epilogue provided by programmer.
+  89              		@ args = 0, pretend = 0, frame = 0
+  90              		@ frame_needed = 0, uses_anonymous_args = 0
+  91              		.syntax unified
+  92              	@ 498 "core/cmsis/core_support/core_cm3.c" 1
+  93 0000 80F30888 		MSR msp, r0
+  94 0004 7047     		BX  lr     
+  95              		
+  96              	@ 0 "" 2
+  97              		.thumb
+  98              		.syntax unified
+ 100              		.section	.text.__get_BASEPRI,"ax",%progbits
+ 101              		.align	1
+ 102              		.global	__get_BASEPRI
+ 103              		.syntax unified
+ 104              		.thumb
+ 105              		.thumb_func
+ 106              		.fpu softvfp
+ 108              	__get_BASEPRI:
+ 109              		@ args = 0, pretend = 0, frame = 0
+ 110              		@ frame_needed = 0, uses_anonymous_args = 0
+ 111              		@ link register save eliminated.
+ 112              		.syntax unified
+ 113              	@ 513 "core/cmsis/core_support/core_cm3.c" 1
+ 114 0000 EFF31280 		MRS r0, basepri_max
+ 115              	@ 0 "" 2
+ 116              		.thumb
+ 117              		.syntax unified
+ 118 0004 7047     		bx	lr
+ 120              		.section	.text.__set_BASEPRI,"ax",%progbits
+ 121              		.align	1
+ 122              		.global	__set_BASEPRI
+ 123              		.syntax unified
+ 124              		.thumb
+ARM GAS  /tmp/ccm0XvEJ.s 			page 3
+
+
+ 125              		.thumb_func
+ 126              		.fpu softvfp
+ 128              	__set_BASEPRI:
+ 129              		@ args = 0, pretend = 0, frame = 0
+ 130              		@ frame_needed = 0, uses_anonymous_args = 0
+ 131              		@ link register save eliminated.
+ 132              		.syntax unified
+ 133              	@ 526 "core/cmsis/core_support/core_cm3.c" 1
+ 134 0000 80F31188 		MSR basepri, r0
+ 135              	@ 0 "" 2
+ 136              		.thumb
+ 137              		.syntax unified
+ 138 0004 7047     		bx	lr
+ 140              		.section	.text.__get_PRIMASK,"ax",%progbits
+ 141              		.align	1
+ 142              		.global	__get_PRIMASK
+ 143              		.syntax unified
+ 144              		.thumb
+ 145              		.thumb_func
+ 146              		.fpu softvfp
+ 148              	__get_PRIMASK:
+ 149              		@ args = 0, pretend = 0, frame = 0
+ 150              		@ frame_needed = 0, uses_anonymous_args = 0
+ 151              		@ link register save eliminated.
+ 152              		.syntax unified
+ 153              	@ 540 "core/cmsis/core_support/core_cm3.c" 1
+ 154 0000 EFF31080 		MRS r0, primask
+ 155              	@ 0 "" 2
+ 156              		.thumb
+ 157              		.syntax unified
+ 158 0004 7047     		bx	lr
+ 160              		.section	.text.__set_PRIMASK,"ax",%progbits
+ 161              		.align	1
+ 162              		.global	__set_PRIMASK
+ 163              		.syntax unified
+ 164              		.thumb
+ 165              		.thumb_func
+ 166              		.fpu softvfp
+ 168              	__set_PRIMASK:
+ 169              		@ args = 0, pretend = 0, frame = 0
+ 170              		@ frame_needed = 0, uses_anonymous_args = 0
+ 171              		@ link register save eliminated.
+ 172              		.syntax unified
+ 173              	@ 553 "core/cmsis/core_support/core_cm3.c" 1
+ 174 0000 80F31088 		MSR primask, r0
+ 175              	@ 0 "" 2
+ 176              		.thumb
+ 177              		.syntax unified
+ 178 0004 7047     		bx	lr
+ 180              		.section	.text.__get_FAULTMASK,"ax",%progbits
+ 181              		.align	1
+ 182              		.global	__get_FAULTMASK
+ 183              		.syntax unified
+ 184              		.thumb
+ 185              		.thumb_func
+ 186              		.fpu softvfp
+ 188              	__get_FAULTMASK:
+ARM GAS  /tmp/ccm0XvEJ.s 			page 4
+
+
+ 189              		@ args = 0, pretend = 0, frame = 0
+ 190              		@ frame_needed = 0, uses_anonymous_args = 0
+ 191              		@ link register save eliminated.
+ 192              		.syntax unified
+ 193              	@ 567 "core/cmsis/core_support/core_cm3.c" 1
+ 194 0000 EFF31380 		MRS r0, faultmask
+ 195              	@ 0 "" 2
+ 196              		.thumb
+ 197              		.syntax unified
+ 198 0004 7047     		bx	lr
+ 200              		.section	.text.__set_FAULTMASK,"ax",%progbits
+ 201              		.align	1
+ 202              		.global	__set_FAULTMASK
+ 203              		.syntax unified
+ 204              		.thumb
+ 205              		.thumb_func
+ 206              		.fpu softvfp
+ 208              	__set_FAULTMASK:
+ 209              		@ args = 0, pretend = 0, frame = 0
+ 210              		@ frame_needed = 0, uses_anonymous_args = 0
+ 211              		@ link register save eliminated.
+ 212              		.syntax unified
+ 213              	@ 580 "core/cmsis/core_support/core_cm3.c" 1
+ 214 0000 80F31388 		MSR faultmask, r0
+ 215              	@ 0 "" 2
+ 216              		.thumb
+ 217              		.syntax unified
+ 218 0004 7047     		bx	lr
+ 220              		.section	.text.__get_CONTROL,"ax",%progbits
+ 221              		.align	1
+ 222              		.global	__get_CONTROL
+ 223              		.syntax unified
+ 224              		.thumb
+ 225              		.thumb_func
+ 226              		.fpu softvfp
+ 228              	__get_CONTROL:
+ 229              		@ args = 0, pretend = 0, frame = 0
+ 230              		@ frame_needed = 0, uses_anonymous_args = 0
+ 231              		@ link register save eliminated.
+ 232              		.syntax unified
+ 233              	@ 594 "core/cmsis/core_support/core_cm3.c" 1
+ 234 0000 EFF31480 		MRS r0, control
+ 235              	@ 0 "" 2
+ 236              		.thumb
+ 237              		.syntax unified
+ 238 0004 7047     		bx	lr
+ 240              		.section	.text.__set_CONTROL,"ax",%progbits
+ 241              		.align	1
+ 242              		.global	__set_CONTROL
+ 243              		.syntax unified
+ 244              		.thumb
+ 245              		.thumb_func
+ 246              		.fpu softvfp
+ 248              	__set_CONTROL:
+ 249              		@ args = 0, pretend = 0, frame = 0
+ 250              		@ frame_needed = 0, uses_anonymous_args = 0
+ 251              		@ link register save eliminated.
+ARM GAS  /tmp/ccm0XvEJ.s 			page 5
+
+
+ 252              		.syntax unified
+ 253              	@ 607 "core/cmsis/core_support/core_cm3.c" 1
+ 254 0000 80F31488 		MSR control, r0
+ 255              	@ 0 "" 2
+ 256              		.thumb
+ 257              		.syntax unified
+ 258 0004 7047     		bx	lr
+ 260              		.section	.text.__REV,"ax",%progbits
+ 261              		.align	1
+ 262              		.global	__REV
+ 263              		.syntax unified
+ 264              		.thumb
+ 265              		.thumb_func
+ 266              		.fpu softvfp
+ 268              	__REV:
+ 269              		@ args = 0, pretend = 0, frame = 0
+ 270              		@ frame_needed = 0, uses_anonymous_args = 0
+ 271              		@ link register save eliminated.
+ 272              		.syntax unified
+ 273              	@ 623 "core/cmsis/core_support/core_cm3.c" 1
+ 274 0000 00BA     		rev r0, r0
+ 275              	@ 0 "" 2
+ 276              		.thumb
+ 277              		.syntax unified
+ 278 0002 7047     		bx	lr
+ 280              		.section	.text.__REV16,"ax",%progbits
+ 281              		.align	1
+ 282              		.global	__REV16
+ 283              		.syntax unified
+ 284              		.thumb
+ 285              		.thumb_func
+ 286              		.fpu softvfp
+ 288              	__REV16:
+ 289              		@ args = 0, pretend = 0, frame = 0
+ 290              		@ frame_needed = 0, uses_anonymous_args = 0
+ 291              		@ link register save eliminated.
+ 292              		.syntax unified
+ 293              	@ 639 "core/cmsis/core_support/core_cm3.c" 1
+ 294 0000 40BA     		rev16 r0, r0
+ 295              	@ 0 "" 2
+ 296              		.thumb
+ 297              		.syntax unified
+ 298 0002 7047     		bx	lr
+ 300              		.section	.text.__REVSH,"ax",%progbits
+ 301              		.align	1
+ 302              		.global	__REVSH
+ 303              		.syntax unified
+ 304              		.thumb
+ 305              		.thumb_func
+ 306              		.fpu softvfp
+ 308              	__REVSH:
+ 309              		@ args = 0, pretend = 0, frame = 0
+ 310              		@ frame_needed = 0, uses_anonymous_args = 0
+ 311              		@ link register save eliminated.
+ 312              		.syntax unified
+ 313              	@ 655 "core/cmsis/core_support/core_cm3.c" 1
+ 314 0000 C0BA     		revsh r0, r0
+ARM GAS  /tmp/ccm0XvEJ.s 			page 6
+
+
+ 315              	@ 0 "" 2
+ 316              		.thumb
+ 317              		.syntax unified
+ 318 0002 7047     		bx	lr
+ 320              		.section	.text.__RBIT,"ax",%progbits
+ 321              		.align	1
+ 322              		.global	__RBIT
+ 323              		.syntax unified
+ 324              		.thumb
+ 325              		.thumb_func
+ 326              		.fpu softvfp
+ 328              	__RBIT:
+ 329              		@ args = 0, pretend = 0, frame = 0
+ 330              		@ frame_needed = 0, uses_anonymous_args = 0
+ 331              		@ link register save eliminated.
+ 332              		.syntax unified
+ 333              	@ 671 "core/cmsis/core_support/core_cm3.c" 1
+ 334 0000 90FAA0F0 		rbit r0, r0
+ 335              	@ 0 "" 2
+ 336              		.thumb
+ 337              		.syntax unified
+ 338 0004 7047     		bx	lr
+ 340              		.section	.text.__LDREXB,"ax",%progbits
+ 341              		.align	1
+ 342              		.global	__LDREXB
+ 343              		.syntax unified
+ 344              		.thumb
+ 345              		.thumb_func
+ 346              		.fpu softvfp
+ 348              	__LDREXB:
+ 349              		@ args = 0, pretend = 0, frame = 0
+ 350              		@ frame_needed = 0, uses_anonymous_args = 0
+ 351              		@ link register save eliminated.
+ 352              		.syntax unified
+ 353              	@ 687 "core/cmsis/core_support/core_cm3.c" 1
+ 354 0000 D0E84F0F 		ldrexb r0, [r0]
+ 355              	@ 0 "" 2
+ 356              		.thumb
+ 357              		.syntax unified
+ 358 0004 C0B2     		uxtb	r0, r0
+ 359 0006 7047     		bx	lr
+ 361              		.section	.text.__LDREXH,"ax",%progbits
+ 362              		.align	1
+ 363              		.global	__LDREXH
+ 364              		.syntax unified
+ 365              		.thumb
+ 366              		.thumb_func
+ 367              		.fpu softvfp
+ 369              	__LDREXH:
+ 370              		@ args = 0, pretend = 0, frame = 0
+ 371              		@ frame_needed = 0, uses_anonymous_args = 0
+ 372              		@ link register save eliminated.
+ 373              		.syntax unified
+ 374              	@ 703 "core/cmsis/core_support/core_cm3.c" 1
+ 375 0000 D0E85F0F 		ldrexh r0, [r0]
+ 376              	@ 0 "" 2
+ 377              		.thumb
+ARM GAS  /tmp/ccm0XvEJ.s 			page 7
+
+
+ 378              		.syntax unified
+ 379 0004 80B2     		uxth	r0, r0
+ 380 0006 7047     		bx	lr
+ 382              		.section	.text.__LDREXW,"ax",%progbits
+ 383              		.align	1
+ 384              		.global	__LDREXW
+ 385              		.syntax unified
+ 386              		.thumb
+ 387              		.thumb_func
+ 388              		.fpu softvfp
+ 390              	__LDREXW:
+ 391              		@ args = 0, pretend = 0, frame = 0
+ 392              		@ frame_needed = 0, uses_anonymous_args = 0
+ 393              		@ link register save eliminated.
+ 394              		.syntax unified
+ 395              	@ 719 "core/cmsis/core_support/core_cm3.c" 1
+ 396 0000 50E8000F 		ldrex r0, [r0]
+ 397              	@ 0 "" 2
+ 398              		.thumb
+ 399              		.syntax unified
+ 400 0004 7047     		bx	lr
+ 402              		.section	.text.__STREXB,"ax",%progbits
+ 403              		.align	1
+ 404              		.global	__STREXB
+ 405              		.syntax unified
+ 406              		.thumb
+ 407              		.thumb_func
+ 408              		.fpu softvfp
+ 410              	__STREXB:
+ 411              		@ args = 0, pretend = 0, frame = 0
+ 412              		@ frame_needed = 0, uses_anonymous_args = 0
+ 413              		@ link register save eliminated.
+ 414              		.syntax unified
+ 415              	@ 736 "core/cmsis/core_support/core_cm3.c" 1
+ 416 0000 C1E8430F 		strexb r3, r0, [r1]
+ 417              	@ 0 "" 2
+ 418              		.thumb
+ 419              		.syntax unified
+ 420 0004 1846     		mov	r0, r3
+ 421 0006 7047     		bx	lr
+ 423              		.section	.text.__STREXH,"ax",%progbits
+ 424              		.align	1
+ 425              		.global	__STREXH
+ 426              		.syntax unified
+ 427              		.thumb
+ 428              		.thumb_func
+ 429              		.fpu softvfp
+ 431              	__STREXH:
+ 432              		@ args = 0, pretend = 0, frame = 0
+ 433              		@ frame_needed = 0, uses_anonymous_args = 0
+ 434              		@ link register save eliminated.
+ 435              		.syntax unified
+ 436              	@ 753 "core/cmsis/core_support/core_cm3.c" 1
+ 437 0000 C1E8530F 		strexh r3, r0, [r1]
+ 438              	@ 0 "" 2
+ 439              		.thumb
+ 440              		.syntax unified
+ARM GAS  /tmp/ccm0XvEJ.s 			page 8
+
+
+ 441 0004 1846     		mov	r0, r3
+ 442 0006 7047     		bx	lr
+ 444              		.section	.text.__STREXW,"ax",%progbits
+ 445              		.align	1
+ 446              		.global	__STREXW
+ 447              		.syntax unified
+ 448              		.thumb
+ 449              		.thumb_func
+ 450              		.fpu softvfp
+ 452              	__STREXW:
+ 453              		@ args = 0, pretend = 0, frame = 0
+ 454              		@ frame_needed = 0, uses_anonymous_args = 0
+ 455              		@ link register save eliminated.
+ 456              		.syntax unified
+ 457              	@ 770 "core/cmsis/core_support/core_cm3.c" 1
+ 458 0000 41E80000 		strex r0, r0, [r1]
+ 459              	@ 0 "" 2
+ 460              		.thumb
+ 461              		.syntax unified
+ 462 0004 7047     		bx	lr
+ 464              		.ident	"GCC: (15:10.3-2021.07-4) 10.3.1 20210621 (release)"
+ARM GAS  /tmp/ccm0XvEJ.s 			page 9
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 core_cm3.c
+     /tmp/ccm0XvEJ.s:14     .text.__get_PSP:0000000000000000 $t
+     /tmp/ccm0XvEJ.s:22     .text.__get_PSP:0000000000000000 __get_PSP
+     /tmp/ccm0XvEJ.s:37     .text.__set_PSP:0000000000000000 $t
+     /tmp/ccm0XvEJ.s:44     .text.__set_PSP:0000000000000000 __set_PSP
+     /tmp/ccm0XvEJ.s:58     .text.__get_MSP:0000000000000000 $t
+     /tmp/ccm0XvEJ.s:65     .text.__get_MSP:0000000000000000 __get_MSP
+     /tmp/ccm0XvEJ.s:80     .text.__set_MSP:0000000000000000 $t
+     /tmp/ccm0XvEJ.s:87     .text.__set_MSP:0000000000000000 __set_MSP
+     /tmp/ccm0XvEJ.s:101    .text.__get_BASEPRI:0000000000000000 $t
+     /tmp/ccm0XvEJ.s:108    .text.__get_BASEPRI:0000000000000000 __get_BASEPRI
+     /tmp/ccm0XvEJ.s:121    .text.__set_BASEPRI:0000000000000000 $t
+     /tmp/ccm0XvEJ.s:128    .text.__set_BASEPRI:0000000000000000 __set_BASEPRI
+     /tmp/ccm0XvEJ.s:141    .text.__get_PRIMASK:0000000000000000 $t
+     /tmp/ccm0XvEJ.s:148    .text.__get_PRIMASK:0000000000000000 __get_PRIMASK
+     /tmp/ccm0XvEJ.s:161    .text.__set_PRIMASK:0000000000000000 $t
+     /tmp/ccm0XvEJ.s:168    .text.__set_PRIMASK:0000000000000000 __set_PRIMASK
+     /tmp/ccm0XvEJ.s:181    .text.__get_FAULTMASK:0000000000000000 $t
+     /tmp/ccm0XvEJ.s:188    .text.__get_FAULTMASK:0000000000000000 __get_FAULTMASK
+     /tmp/ccm0XvEJ.s:201    .text.__set_FAULTMASK:0000000000000000 $t
+     /tmp/ccm0XvEJ.s:208    .text.__set_FAULTMASK:0000000000000000 __set_FAULTMASK
+     /tmp/ccm0XvEJ.s:221    .text.__get_CONTROL:0000000000000000 $t
+     /tmp/ccm0XvEJ.s:228    .text.__get_CONTROL:0000000000000000 __get_CONTROL
+     /tmp/ccm0XvEJ.s:241    .text.__set_CONTROL:0000000000000000 $t
+     /tmp/ccm0XvEJ.s:248    .text.__set_CONTROL:0000000000000000 __set_CONTROL
+     /tmp/ccm0XvEJ.s:261    .text.__REV:0000000000000000 $t
+     /tmp/ccm0XvEJ.s:268    .text.__REV:0000000000000000 __REV
+     /tmp/ccm0XvEJ.s:281    .text.__REV16:0000000000000000 $t
+     /tmp/ccm0XvEJ.s:288    .text.__REV16:0000000000000000 __REV16
+     /tmp/ccm0XvEJ.s:301    .text.__REVSH:0000000000000000 $t
+     /tmp/ccm0XvEJ.s:308    .text.__REVSH:0000000000000000 __REVSH
+     /tmp/ccm0XvEJ.s:321    .text.__RBIT:0000000000000000 $t
+     /tmp/ccm0XvEJ.s:328    .text.__RBIT:0000000000000000 __RBIT
+     /tmp/ccm0XvEJ.s:341    .text.__LDREXB:0000000000000000 $t
+     /tmp/ccm0XvEJ.s:348    .text.__LDREXB:0000000000000000 __LDREXB
+     /tmp/ccm0XvEJ.s:362    .text.__LDREXH:0000000000000000 $t
+     /tmp/ccm0XvEJ.s:369    .text.__LDREXH:0000000000000000 __LDREXH
+     /tmp/ccm0XvEJ.s:383    .text.__LDREXW:0000000000000000 $t
+     /tmp/ccm0XvEJ.s:390    .text.__LDREXW:0000000000000000 __LDREXW
+     /tmp/ccm0XvEJ.s:403    .text.__STREXB:0000000000000000 $t
+     /tmp/ccm0XvEJ.s:410    .text.__STREXB:0000000000000000 __STREXB
+     /tmp/ccm0XvEJ.s:424    .text.__STREXH:0000000000000000 $t
+     /tmp/ccm0XvEJ.s:431    .text.__STREXH:0000000000000000 __STREXH
+     /tmp/ccm0XvEJ.s:445    .text.__STREXW:0000000000000000 $t
+     /tmp/ccm0XvEJ.s:452    .text.__STREXW:0000000000000000 __STREXW
+
+NO UNDEFINED SYMBOLS
